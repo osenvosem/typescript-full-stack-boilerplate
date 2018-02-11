@@ -1,0 +1,10 @@
+{
+  "watch": [
+    "webpack.common.js",
+    "webpack.dev.js",
+    "webpack.prod.js",
+    "src/server.ts",
+    ".babelrc",
+    "tsconfig.json"
+  ]
+}

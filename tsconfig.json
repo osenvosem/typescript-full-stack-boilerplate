@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "sourceMap": true,
+    "lib": ["es2016", "dom"],
+    "allowJs": true
+  },
+  "exclude": ["node_modules"]
+}
