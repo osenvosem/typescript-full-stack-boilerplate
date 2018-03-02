@@ -6,7 +6,9 @@
     "noEmit": true,
     "sourceMap": true,
     "lib": ["es2016", "dom"],
-    "allowJs": true
+    "allowJs": true,
+    "jsx": "preserve",
+    "strict": true
   },
   "exclude": ["node_modules"]
 }

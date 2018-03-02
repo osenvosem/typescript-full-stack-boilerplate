@@ -1,7 +1,6 @@
 {
   "presets": [
     "@babel/preset-typescript",
-    "@babel/preset-react",
     [
       "@babel/preset-env",
       {
@@ -9,7 +8,14 @@
           "browsers": ["last 2 versions"]
         }
       }
-    ]
+    ],
+    "@babel/preset-stage-2",
+    "@babel/preset-react"
   ],
-  "plugins": ["@babel/plugin-syntax-dynamic-import"]
+  "env": {
+    "development": {
+      "presets": ["@babel/preset-env"],
+      "plugins": ["react-hot-loader/babel"]
+    }
+  }
 }

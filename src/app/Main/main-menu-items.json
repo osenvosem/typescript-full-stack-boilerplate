@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Home",
+    "path": "/"
+  },
+  {
+    "title": "Dogs",
+    "path": "/dogs"
+  },
+  {
+    "title": "Cats",
+    "path": "/cats"
+  },
+  {
+    "title": "Spiders",
+    "path": "/spiders"
+  },
+  {
+    "title": "About",
+    "path": "/about"
+  },
+  {
+    "title": "Redirect to About",
+    "path": "/red"
+  }
+]

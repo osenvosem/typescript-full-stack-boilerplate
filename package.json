@@ -4,30 +4,44 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development nodemon --exec babel-node src/server.ts --extensions '.ts','.tsx'"
+    "start": "NODE_ENV=development node scripts/start.js",
+    "start:server":
+      "NODE_ENV=development nodemon --exec babel-node src/server/index.ts --extensions '.ts','.tsx'",
+    "build": "webpack --config webpack.prod.js",
+    "clean": "rm -rf dist/*"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.39",
-    "@babel/node": "^7.0.0-beta.39",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.39",
-    "@babel/preset-env": "^7.0.0-beta.39",
-    "@babel/preset-react": "^7.0.0-beta.39",
-    "@babel/preset-typescript": "^7.0.0-beta.39",
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/node": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/preset-react": "^7.0.0-beta.40",
+    "@babel/preset-stage-2": "^7.0.0-beta.40",
+    "@babel/preset-typescript": "^7.0.0-beta.40",
     "@types/express": "^4.11.1",
     "@types/node": "^9.4.5",
+    "@types/react": "^16.0.38",
+    "@types/react-dom": "^16.0.4",
+    "@types/react-router-dom": "^4.2.4",
     "@types/webpack": "^3.8.5",
+    "@types/webpack-dev-middleware": "^2.0.0",
     "@types/webpack-env": "^1.13.5",
+    "@types/webpack-hot-middleware": "^2.16.2",
     "babel-loader": "^8.0.0-beta.0",
-    "html-webpack-plugin": "^2.30.1",
+    "css-loader": "^0.28.10",
     "nodemon": "^1.14.12",
-    "webpack": "^3.11.0",
+    "react-hot-loader": "^4.0.0",
+    "style-loader": "^0.20.2",
+    "webpack": "^4.0.0",
+    "webpack-cli": "^2.0.10",
     "webpack-dev-middleware": "^2.0.5",
+    "webpack-dev-server": "^3.1.0",
     "webpack-hot-middleware": "^2.21.0",
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
     "express": "^4.16.2",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2"
   }
 }

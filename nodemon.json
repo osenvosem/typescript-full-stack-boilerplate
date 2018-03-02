@@ -3,8 +3,9 @@
     "webpack.common.js",
     "webpack.dev.js",
     "webpack.prod.js",
-    "src/server.ts",
+    "src/server/",
     ".babelrc",
     "tsconfig.json"
-  ]
+  ],
+  "ext": "ts tsx json"
 }

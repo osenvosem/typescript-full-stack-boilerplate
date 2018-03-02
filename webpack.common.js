@@ -1,37 +1,39 @@
 const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    vendor: ["react", "react-dom"],
-    main: "./src/index.ts"
+    vendor: ["react", "react-dom", "react-router-dom"],
+    main: ["./src/client.tsx"]
   },
   output: {
     path: path.resolve("./dist"),
     filename: "[name].bundle.js",
-    publicPath: "/"
+    publicPath: "/assets/"
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         use: "babel-loader"
+      },
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              module: true,
+              camelCase: true,
+              localIdentName: "[folder]__[local]--[hash:6]"
+            }
+          }
+        ]
       }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({ title: "Learning React" }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ["common", "vendor"],
-      minChunks: 2
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "manifest",
-      minChunks: Infinity
-    })
-  ],
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+    modules: ["node_modules", "shared"]
   }
 };
