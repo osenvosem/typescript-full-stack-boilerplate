@@ -5,10 +5,13 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=development node scripts/start.js",
-    "start:server":
-      "NODE_ENV=development nodemon --exec babel-node src/server/index.ts --extensions '.ts','.tsx'",
-    "build": "webpack --config webpack.prod.js",
-    "clean": "rm -rf dist/*"
+    "build": "npm-run-all clean -p build:*",
+    "build:client":
+      "NODE_ENV=production webpack --config config/webpack/client.js",
+    "build:server":
+      "NODE_ENV=production webpack --config config/webpack/server.js",
+    "start:prod": "NODE_ENV=production node dist/server.bundle.js",
+    "clean": "rimraf dist/* public/*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.40",
@@ -36,7 +39,8 @@
     "webpack-dev-middleware": "^2.0.5",
     "webpack-dev-server": "^3.1.0",
     "webpack-hot-middleware": "^2.21.0",
-    "webpack-merge": "^4.1.1"
+    "webpack-merge": "^4.1.1",
+    "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
     "express": "^4.16.2",

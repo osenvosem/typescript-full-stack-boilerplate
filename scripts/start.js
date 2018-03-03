@@ -1,21 +1,68 @@
-const { exec } = require("child_process");
+const { spawn } = require("child_process");
 const webpack = require("webpack");
 const WDS = require("webpack-dev-server");
-const config = require("../webpack.dev");
+const weblog = require("webpack-log");
 
-const compiler = webpack(config);
+const clientConfig = require("../config/webpack/client");
+const serverConfig = require("../config/webpack/server");
 
-const server = new WDS(compiler, config.devServer);
+// Frontend
+
+const server = new WDS(webpack(clientConfig), clientConfig.devServer);
 
 server.listen(3000);
 
-// server
-const command =
-  "node_modules/.bin/nodemon --exec node_modules/.bin/babel-node src/server/index.ts --extensions '.ts','.tsx'";
-const envVars = { NODE_ENV: "development" };
+// Backend
 
-exec(command, envVars, (err, stdout, stderr) => {
-  if (err) return console.error(err);
-  if (stdout) console.log(stdout);
-  if (stderr) console.log(stderr);
+const compiler = webpack(serverConfig);
+
+const log = weblog({ name: "server bundle" });
+
+let nodemonCP = null;
+
+const watching = compiler.watch(null, (err, stats) => {
+  if (err) {
+    console.error(err.stack || err);
+    if (err.details) {
+      console.error(err.details);
+    }
+    return;
+  }
+
+  const info = stats.toJson();
+
+  if (stats.hasErrors()) {
+    console.error(info.errors);
+  }
+
+  if (stats.hasWarnings()) {
+    console.warn(info.warnings);
+  }
+
+  log.info(stats.toString(serverConfig.stats), "\n");
+
+  // run the server bundle
+
+  const serverFilename = Object.keys(stats.compilation.assets).filter(
+    filename => /\.js$/.test(filename)
+  )[0];
+
+  if (typeof serverFilename === "undefined") {
+    throw new Error("Faild to get compiled server file name.");
+  }
+
+  if (!nodemonCP) {
+    nodemonCP = spawn(
+      "node_modules/.bin/nodemon",
+      ["-q", `dist/${serverFilename}`],
+      {
+        stdio: "inherit"
+      }
+    );
+  }
+});
+
+process.on("exit", () => {
+  nodemonCP.kill();
+  watching.close();
 });
