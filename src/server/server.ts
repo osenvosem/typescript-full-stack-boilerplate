@@ -1,5 +1,5 @@
 import express from "express";
-import SSRHandler from "./ssrHandler";
+import SSRHandler from "./routes/SSR";
 
 const app = express();
 

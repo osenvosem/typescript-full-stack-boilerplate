@@ -1,4 +1,6 @@
-const { spawn } = require("child_process");
+const path = require("path");
+const fs = require("fs");
+const cp = require("child_process");
 const webpack = require("webpack");
 const WDS = require("webpack-dev-server");
 const weblog = require("webpack-log");
@@ -6,63 +8,75 @@ const weblog = require("webpack-log");
 const clientConfig = require("../config/webpack/client");
 const serverConfig = require("../config/webpack/server");
 
+const globalConfig = require("config");
+const buildPaths = globalConfig.get("buildPaths");
+
 // Frontend
 
-const server = new WDS(webpack(clientConfig), clientConfig.devServer);
-
-server.listen(3000);
+new WDS(webpack(clientConfig), clientConfig.devServer).listen(3000);
 
 // Backend
 
-const compiler = webpack(serverConfig);
-
-const log = weblog({ name: "server bundle" });
-
-let nodemonCP = null;
-
-const watching = compiler.watch(null, (err, stats) => {
-  if (err) {
-    console.error(err.stack || err);
-    if (err.details) {
-      console.error(err.details);
-    }
+const manifestWatcher = fs.watch(buildPaths.client, (eventType, filename) => {
+  if (eventType !== "change" && filename !== buildPaths.manifestFilename) {
     return;
   }
 
-  const info = stats.toJson();
+  manifestWatcher.close();
 
-  if (stats.hasErrors()) {
-    console.error(info.errors);
-  }
+  const manifestOldPath = `${buildPaths.client}/${buildPaths.manifestFilename}`;
+  const manifestNewPath = `${buildPaths.manifestFinalPath}`;
 
-  if (stats.hasWarnings()) {
-    console.warn(info.warnings);
-  }
+  fs.rename(manifestOldPath, manifestNewPath, err => {
+    if (err) console.error(err);
 
-  log.info(stats.toString(serverConfig.stats), "\n");
+    const compiler = webpack(serverConfig);
 
-  // run the server bundle
+    const log = weblog({ name: "server bundle" });
 
-  const serverFilename = Object.keys(stats.compilation.assets).filter(
-    filename => /\.js$/.test(filename)
-  )[0];
+    let nodemonCP = null;
 
-  if (typeof serverFilename === "undefined") {
-    throw new Error("Faild to get compiled server file name.");
-  }
-
-  if (!nodemonCP) {
-    nodemonCP = spawn(
-      "node_modules/.bin/nodemon",
-      ["-q", `dist/${serverFilename}`],
-      {
-        stdio: "inherit"
+    const serverWebpackWatcher = compiler.watch({}, (err, stats) => {
+      if (err) {
+        console.error(err.stack || err);
+        if (err.details) {
+          console.error(err.details);
+        }
+        return;
       }
-    );
-  }
-});
 
-process.on("exit", () => {
-  nodemonCP.kill();
-  watching.close();
+      const info = stats.toJson();
+
+      if (stats.hasErrors()) {
+        console.error(info.errors);
+      }
+
+      if (stats.hasWarnings()) {
+        console.warn(info.warnings);
+      }
+
+      log.info(stats.toString(serverConfig.stats), "\n");
+
+      // run the server bundle
+
+      // get the server bundle name
+      const serverFilename = Object.keys(stats.compilation.assets).filter(
+        filename => /\.js$/.test(filename)
+      )[0];
+
+      if (typeof serverFilename === "undefined") {
+        throw new Error("Faild to get server bundle name.");
+      }
+
+      if (!nodemonCP) {
+        nodemonCP = cp.spawn(
+          "node_modules/.bin/nodemon",
+          ["-q", `${buildPaths.server}/${serverFilename}`],
+          {
+            stdio: "inherit"
+          }
+        );
+      }
+    });
+  });
 });

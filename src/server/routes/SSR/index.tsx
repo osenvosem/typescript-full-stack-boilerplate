@@ -2,8 +2,9 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
 import { Application, Handler } from "express";
-import Main from "../app/Main";
+import Main from "../../../app/Main";
 import { IStaticContext } from "./interfaces";
+import assetManifest from "./manifest.json";
 
 const SSRHandler: Handler = (req, res, next) => {
   const context: IStaticContext = {};
@@ -32,8 +33,11 @@ const SSRHandler: Handler = (req, res, next) => {
       <body>
         <div id="root">${markup}</div>
 
-        <script src="/assets/vendor.bundle.js"></script>
-        <script src="/assets/main.bundle.js"></script>
+        ${Object.values<string>(assetManifest)
+          .map(assetPath => {
+            return `<script src="${assetPath}"></script>`;
+          })
+          .join("\n")}
       </body>
 
       </html>

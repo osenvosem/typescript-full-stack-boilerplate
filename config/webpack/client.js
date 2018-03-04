@@ -1,35 +1,47 @@
 const path = require("path");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
-const commonConfig = require("./common");
+const ManifestPlugin = require("webpack-manifest-plugin");
+const globalConfig = require("config");
+
+const commonWebpackConfig = require("./common");
+
+const buildPaths = globalConfig.get("buildPaths");
 
 const publicPath = "/assets/";
 const isDev = process.env.NODE_ENV === "development";
 
-const config = {
+const localWebpackConfig = {
   mode: isDev ? "development" : "production",
   entry: {
     main: ["./src/client.tsx"]
   },
   output: {
-    path: path.resolve("public"),
-    publicPath
+    path: path.resolve(buildPaths.client),
+    publicPath,
+    filename: isDev ? "[name].bundle.js" : "[chunkhash].js",
+    chunkFilename: isDev ? "[name].chunk.js" : "[chunkhash].js"
   },
   optimization: {
     splitChunks: {
-      chunks: "all",
-      name: false
+      chunks: "all"
     }
-  }
+  },
+  plugins: [
+    new ManifestPlugin({
+      writeToFileEmit: true,
+      fileName: buildPaths.manifestFilename
+    })
+  ]
 };
 
 if (isDev) {
-  config.entry.main.unshift(
+  localWebpackConfig.entry.main.unshift(
     "webpack-dev-server/client?http://localhost:3000/",
     "webpack/hot/dev-server"
   );
-  config.plugins = [new webpack.HotModuleReplacementPlugin()];
-  config.devServer = {
+  localWebpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
+  localWebpackConfig.devServer = {
     publicPath,
     port: 3000,
     hot: true,
@@ -51,4 +63,4 @@ if (isDev) {
   };
 }
 
-module.exports = merge(commonConfig, config);
+module.exports = merge(commonWebpackConfig, localWebpackConfig);

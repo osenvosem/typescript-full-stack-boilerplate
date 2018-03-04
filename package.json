@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development node scripts/start.js",
+    "start": "npm-run-all start:dev",
+    "start:dev": "NODE_ENV=development node scripts/start.js",
     "build": "npm-run-all clean -p build:*",
     "build:client":
       "NODE_ENV=production webpack --config config/webpack/client.js",
@@ -32,17 +33,20 @@
     "babel-loader": "^8.0.0-beta.0",
     "css-loader": "^0.28.10",
     "nodemon": "^1.14.12",
+    "npm-run-all": "^4.1.2",
     "react-hot-loader": "^4.0.0",
     "style-loader": "^0.20.2",
-    "webpack": "^4.0.0",
+    "webpack": "^4.0.1",
     "webpack-cli": "^2.0.10",
     "webpack-dev-middleware": "^2.0.5",
     "webpack-dev-server": "^3.1.0",
     "webpack-hot-middleware": "^2.21.0",
+    "webpack-manifest-plugin": "^2.0.0-rc.2",
     "webpack-merge": "^4.1.1",
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
+    "config": "^1.30.0",
     "express": "^4.16.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
