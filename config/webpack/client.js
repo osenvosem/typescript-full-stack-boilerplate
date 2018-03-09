@@ -49,17 +49,7 @@ if (isDev) {
     proxy: {
       [`!**${publicPath}*`]: "http://localhost:3001"
     },
-    stats: {
-      colors: true,
-      errors: true,
-      warnings: true,
-      modules: false,
-      version: false,
-      hash: false,
-      children: false,
-      entrypoints: false,
-      builtAt: false
-    }
+    quiet: true
   };
 }
 

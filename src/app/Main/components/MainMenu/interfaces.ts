@@ -1,8 +1,4 @@
-export interface IMainMenuItem {
-  path: string;
+export interface IMenuItem {
   title: string;
-}
-
-export interface IMainMenuProps {
-  items: IMainMenuItem[];
+  path: string;
 }

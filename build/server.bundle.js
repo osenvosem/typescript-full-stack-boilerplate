@@ -67,7 +67,7 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
-/******/ 	// object with all compiled WebAssmbly.Modules
+/******/ 	// object with all compiled WebAssembly.Modules
 /******/ 	__webpack_require__.w = {};
 /******/
 /******/
@@ -129,6 +129,8 @@ var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
 
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 
+var _mainMenuItems = _interopRequireDefault(__webpack_require__(/*! ./mainMenuItems.json */ "./src/app/Main/components/MainMenu/mainMenuItems.json"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (function () {
@@ -137,11 +139,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   enterModule && enterModule(module);
 })();
 
-var MainMenu = function MainMenu(props) {
-  return _react.default.createElement("nav", null, props.items.map(function (item) {
-    return _react.default.createElement(_reactRouterDom.Link, {
+var MainMenu = function MainMenu() {
+  return _react.default.createElement("nav", null, _mainMenuItems.default.map(function (item) {
+    return _react.default.createElement(_reactRouterDom.NavLink, {
+      exact: item.path === "/",
       to: item.path,
-      key: item.path
+      key: item.path,
+      activeStyle: {
+        fontWeight: "bold"
+      }
     }, item.title);
   }));
 };
@@ -170,6 +176,17 @@ exports.default = _default2;
 
 /***/ }),
 
+/***/ "./src/app/Main/components/MainMenu/mainMenuItems.json":
+/*!*************************************************************!*\
+  !*** ./src/app/Main/components/MainMenu/mainMenuItems.json ***!
+  \*************************************************************/
+/*! exports provided: 0, 1, 2, default */
+/***/ (function(module) {
+
+module.exports = [{"title":"Home","path":"/"},{"title":"Animals","path":"/animals"},{"title":"About","path":"/about"}];
+
+/***/ }),
+
 /***/ "./src/app/Main/index.tsx":
 /*!********************************!*\
   !*** ./src/app/Main/index.tsx ***!
@@ -193,19 +210,13 @@ var _reactHotLoader = __webpack_require__(/*! react-hot-loader */ "react-hot-loa
 
 var _MainMenu = _interopRequireDefault(__webpack_require__(/*! ./components/MainMenu/ */ "./src/app/Main/components/MainMenu/index.tsx"));
 
+var _NotFound = _interopRequireDefault(__webpack_require__(/*! components/NotFound */ "./src/app/shared/components/NotFound/index.tsx"));
+
 var _Home = _interopRequireDefault(__webpack_require__(/*! ./screens/Home/ */ "./src/app/Main/screens/Home/index.tsx"));
 
 var _About = _interopRequireDefault(__webpack_require__(/*! ./screens/About */ "./src/app/Main/screens/About/index.tsx"));
 
-var _Dogs = _interopRequireDefault(__webpack_require__(/*! ./screens/Dogs */ "./src/app/Main/screens/Dogs/index.tsx"));
-
-var _Cats = _interopRequireDefault(__webpack_require__(/*! ./screens/Cats */ "./src/app/Main/screens/Cats/index.tsx"));
-
-var _Spiders = _interopRequireDefault(__webpack_require__(/*! ./screens/Spiders */ "./src/app/Main/screens/Spiders/index.tsx"));
-
-var _RedirectWithStatus = _interopRequireDefault(__webpack_require__(/*! ../shared/components/RedirectWithStatus */ "./src/app/shared/components/RedirectWithStatus/index.tsx"));
-
-var _mainMenuItems = _interopRequireDefault(__webpack_require__(/*! ./main-menu-items.json */ "./src/app/Main/main-menu-items.json"));
+var _Animals = _interopRequireDefault(__webpack_require__(/*! ./screens/Animals */ "./src/app/Main/screens/Animals/index.tsx"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -243,28 +254,19 @@ function (_Component) {
   _createClass(Main, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("header", null, _react.default.createElement(_MainMenu.default, {
-        items: _mainMenuItems.default
-      })), _react.default.createElement("main", null, _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("header", null, _react.default.createElement(_MainMenu.default, null)), _react.default.createElement("main", null, _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
         exact: true,
         path: "/",
         component: _Home.default
       }), _react.default.createElement(_reactRouterDom.Route, {
-        path: "/dogs",
-        component: _Dogs.default
+        path: "/animals",
+        component: _Animals.default
       }), _react.default.createElement(_reactRouterDom.Route, {
-        path: "/cats",
-        component: _Cats.default
-      }), _react.default.createElement(_reactRouterDom.Route, {
-        path: "/spiders",
-        component: _Spiders.default
-      }), _react.default.createElement(_reactRouterDom.Route, {
+        exact: true,
         path: "/about",
         component: _About.default
-      }), _react.default.createElement(_RedirectWithStatus.default, {
-        from: "/red",
-        to: "/about",
-        status: 302
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        component: _NotFound.default
       }))));
     }
   }, {
@@ -299,17 +301,6 @@ exports.default = _default2;
 
 ;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
-
-/***/ }),
-
-/***/ "./src/app/Main/main-menu-items.json":
-/*!*******************************************!*\
-  !*** ./src/app/Main/main-menu-items.json ***!
-  \*******************************************/
-/*! exports provided: 0, 1, 2, 3, 4, 5, default */
-/***/ (function(module) {
-
-module.exports = [{"title":"Home","path":"/"},{"title":"Dogs","path":"/dogs"},{"title":"Cats","path":"/cats"},{"title":"Spiders","path":"/spiders"},{"title":"About","path":"/about"},{"title":"Redirect to About","path":"/red"}];
 
 /***/ }),
 
@@ -366,10 +357,106 @@ exports.default = _default2;
 
 /***/ }),
 
-/***/ "./src/app/Main/screens/Cats/index.tsx":
-/*!*********************************************!*\
-  !*** ./src/app/Main/screens/Cats/index.tsx ***!
-  \*********************************************/
+/***/ "./src/app/Main/screens/Animals/index.tsx":
+/*!************************************************!*\
+  !*** ./src/app/Main/screens/Animals/index.tsx ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "react-router-dom");
+
+var _Cats = _interopRequireDefault(__webpack_require__(/*! ./screens/Cats */ "./src/app/Main/screens/Animals/screens/Cats/index.tsx"));
+
+var _Dogs = _interopRequireDefault(__webpack_require__(/*! ./screens/Dogs */ "./src/app/Main/screens/Animals/screens/Dogs/index.tsx"));
+
+var _Hamsters = _interopRequireDefault(__webpack_require__(/*! ./screens/Hamsters */ "./src/app/Main/screens/Animals/screens/Hamsters/index.tsx"));
+
+var _NotFound = _interopRequireDefault(__webpack_require__(/*! components/NotFound */ "./src/app/shared/components/NotFound/index.tsx"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(function () {
+  var enterModule = __webpack_require__(/*! react-hot-loader */ "react-hot-loader").enterModule;
+
+  enterModule && enterModule(module);
+})();
+
+var navLinkActiveStyle = {
+  fontWeight: "bold",
+  textDecoration: "none"
+};
+
+var Animals = function Animals(_ref) {
+  var match = _ref.match;
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("nav", null, _react.default.createElement("ul", null, _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.NavLink, {
+    exact: true,
+    to: "".concat(match.url, "/cats"),
+    activeStyle: navLinkActiveStyle
+  }, "Cats")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.NavLink, {
+    exact: true,
+    to: "".concat(match.url, "/dogs"),
+    activeStyle: navLinkActiveStyle
+  }, "Dogs")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.NavLink, {
+    exact: true,
+    to: "".concat(match.url, "/hamsters"),
+    activeStyle: navLinkActiveStyle
+  }, "Hamsters")))), _react.default.createElement("article", null, _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: "".concat(match.url, "/cats"),
+    component: _Cats.default
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: "".concat(match.url, "/dogs"),
+    component: _Dogs.default
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: "".concat(match.url, "/hamsters"),
+    component: _Hamsters.default
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    component: _NotFound.default
+  }))));
+};
+
+var _default = Animals;
+var _default2 = _default;
+exports.default = _default2;
+;
+
+(function () {
+  var reactHotLoader = __webpack_require__(/*! react-hot-loader */ "react-hot-loader").default;
+
+  var leaveModule = __webpack_require__(/*! react-hot-loader */ "react-hot-loader").leaveModule;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(navLinkActiveStyle, "navLinkActiveStyle", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Animals/index.tsx");
+  reactHotLoader.register(Animals, "Animals", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Animals/index.tsx");
+  reactHotLoader.register(_default, "default", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Animals/index.tsx");
+  leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
+/***/ "./src/app/Main/screens/Animals/screens/Cats/index.tsx":
+/*!*************************************************************!*\
+  !*** ./src/app/Main/screens/Animals/screens/Cats/index.tsx ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -409,20 +496,20 @@ exports.default = _default2;
     return;
   }
 
-  reactHotLoader.register(Cats, "Cats", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Cats/index.tsx");
-  reactHotLoader.register(_default, "default", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Cats/index.tsx");
+  reactHotLoader.register(Cats, "Cats", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Animals/screens/Cats/index.tsx");
+  reactHotLoader.register(_default, "default", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Animals/screens/Cats/index.tsx");
   leaveModule(module);
 })();
 
 ;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
 
 /***/ }),
 
-/***/ "./src/app/Main/screens/Dogs/index.tsx":
-/*!*********************************************!*\
-  !*** ./src/app/Main/screens/Dogs/index.tsx ***!
-  \*********************************************/
+/***/ "./src/app/Main/screens/Animals/screens/Dogs/index.tsx":
+/*!*************************************************************!*\
+  !*** ./src/app/Main/screens/Animals/screens/Dogs/index.tsx ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -462,13 +549,66 @@ exports.default = _default2;
     return;
   }
 
-  reactHotLoader.register(Dogs, "Dogs", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Dogs/index.tsx");
-  reactHotLoader.register(_default, "default", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Dogs/index.tsx");
+  reactHotLoader.register(Dogs, "Dogs", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Animals/screens/Dogs/index.tsx");
+  reactHotLoader.register(_default, "default", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Animals/screens/Dogs/index.tsx");
   leaveModule(module);
 })();
 
 ;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
+/***/ "./src/app/Main/screens/Animals/screens/Hamsters/index.tsx":
+/*!*****************************************************************!*\
+  !*** ./src/app/Main/screens/Animals/screens/Hamsters/index.tsx ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(function () {
+  var enterModule = __webpack_require__(/*! react-hot-loader */ "react-hot-loader").enterModule;
+
+  enterModule && enterModule(module);
+})();
+
+var Hamsters = function Hamsters() {
+  return _react.default.createElement("h2", null, "This is the Hamsters page.");
+};
+
+var _default = Hamsters;
+var _default2 = _default;
+exports.default = _default2;
+;
+
+(function () {
+  var reactHotLoader = __webpack_require__(/*! react-hot-loader */ "react-hot-loader").default;
+
+  var leaveModule = __webpack_require__(/*! react-hot-loader */ "react-hot-loader").leaveModule;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(Hamsters, "Hamsters", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Animals/screens/Hamsters/index.tsx");
+  reactHotLoader.register(_default, "default", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Animals/screens/Hamsters/index.tsx");
+  leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
 
 /***/ }),
 
@@ -559,63 +699,10 @@ exports.default = _default2;
 
 /***/ }),
 
-/***/ "./src/app/Main/screens/Spiders/index.tsx":
-/*!************************************************!*\
-  !*** ./src/app/Main/screens/Spiders/index.tsx ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(function () {
-  var enterModule = __webpack_require__(/*! react-hot-loader */ "react-hot-loader").enterModule;
-
-  enterModule && enterModule(module);
-})();
-
-var Spiders = function Spiders() {
-  return _react.default.createElement("h2", null, "This is the Spiders page.");
-};
-
-var _default = Spiders;
-var _default2 = _default;
-exports.default = _default2;
-;
-
-(function () {
-  var reactHotLoader = __webpack_require__(/*! react-hot-loader */ "react-hot-loader").default;
-
-  var leaveModule = __webpack_require__(/*! react-hot-loader */ "react-hot-loader").leaveModule;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(Spiders, "Spiders", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Spiders/index.tsx");
-  reactHotLoader.register(_default, "default", "/Users/srg/Documents/dev/learning-react/src/app/Main/screens/Spiders/index.tsx");
-  leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
-
-/***/ }),
-
-/***/ "./src/app/shared/components/RedirectWithStatus/index.tsx":
-/*!****************************************************************!*\
-  !*** ./src/app/shared/components/RedirectWithStatus/index.tsx ***!
-  \****************************************************************/
+/***/ "./src/app/shared/components/NotFound/index.tsx":
+/*!******************************************************!*\
+  !*** ./src/app/shared/components/NotFound/index.tsx ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -639,28 +726,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   enterModule && enterModule(module);
 })();
 
-var RedirectWithStatus = function RedirectWithStatus(props) {
-  var from = props.from,
-      to = props.to,
-      status = props.status;
-  console.log("From RedirectWithStatus!!!");
+var NotFound = function NotFound(_ref) {
+  var children = _ref.children;
   return _react.default.createElement(_reactRouterDom.Route, {
-    render: function render(_ref) {
-      var staticContext = _ref.staticContext;
-
-      if (staticContext) {
-        staticContext.status = status;
-      }
-
-      return _react.default.createElement(_reactRouterDom.Redirect, {
-        from: from,
-        to: to
-      });
+    render: function render(_ref2) {
+      var staticContext = _ref2.staticContext;
+      if (staticContext) staticContext.code = 404;
+      return _react.default.createElement("article", null, _react.default.createElement("h1", null, "Page not found."), children);
     }
   });
 };
 
-var _default = RedirectWithStatus;
+var _default = NotFound;
 var _default2 = _default;
 exports.default = _default2;
 ;
@@ -674,8 +751,8 @@ exports.default = _default2;
     return;
   }
 
-  reactHotLoader.register(RedirectWithStatus, "RedirectWithStatus", "/Users/srg/Documents/dev/learning-react/src/app/shared/components/RedirectWithStatus/index.tsx");
-  reactHotLoader.register(_default, "default", "/Users/srg/Documents/dev/learning-react/src/app/shared/components/RedirectWithStatus/index.tsx");
+  reactHotLoader.register(NotFound, "NotFound", "/Users/srg/Documents/dev/learning-react/src/app/shared/components/NotFound/index.tsx");
+  reactHotLoader.register(_default, "default", "/Users/srg/Documents/dev/learning-react/src/app/shared/components/NotFound/index.tsx");
   leaveModule(module);
 })();
 
@@ -743,7 +820,6 @@ var SSRHandler = function SSRHandler(req, res, next) {
   }, _react.default.createElement(_Main.default, null)));
 
   if (context.url) {
-    console.log(context);
     res.redirect(context.status || 301, context.url);
   } else {
     var html = "\n      <!DOCTYPE html>\n      <html lang=\"en\">\n\n      <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n        <title>Document</title>\n      </head>\n\n      <body>\n        <div id=\"root\">".concat(markup, "</div>\n\n        ").concat(Object.values(_manifest.default).map(function (assetPath) {

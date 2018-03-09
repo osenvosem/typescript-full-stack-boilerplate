@@ -16,7 +16,6 @@ const SSRHandler: Handler = (req, res, next) => {
   );
 
   if (context.url) {
-    console.log(context);
     res.redirect(context.status || 301, context.url);
   } else {
     const html = `

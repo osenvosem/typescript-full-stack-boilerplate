@@ -1,0 +1,8 @@
+{
+  "buildPaths": {
+    "client": "public",
+    "server": "build",
+    "manifestFilename": "manifest.json",
+    "manifestFinalPath": "src/server/routes/SSR"
+  }
+}

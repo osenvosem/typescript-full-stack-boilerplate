@@ -3,12 +3,11 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import { hot } from "react-hot-loader";
 
 import MainMenu from "./components/MainMenu/";
+import NotFound from "components/NotFound";
+
 import Home from "./screens/Home/";
 import About from "./screens/About";
-import Dogs from "./screens/Dogs";
-import Cats from "./screens/Cats";
-import Spiders from "./screens/Spiders";
-import RedirectWithStatus from "../shared/components/RedirectWithStatus";
+import Animals from "./screens/Animals";
 
 import mainMenuItems from "./main-menu-items.json";
 
@@ -17,16 +16,14 @@ class Main extends Component {
     return (
       <>
         <header>
-          <MainMenu items={mainMenuItems} />
+          <MainMenu />
         </header>
         <main>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/dogs" component={Dogs} />
-            <Route path="/cats" component={Cats} />
-            <Route path="/spiders" component={Spiders} />
-            <Route path="/about" component={About} />
-            <RedirectWithStatus from="/red" to="/about" status={302} />
+            <Route path="/animals" component={Animals} />
+            <Route exact path="/about" component={About} />
+            <Route component={NotFound} />
           </Switch>
         </main>
       </>

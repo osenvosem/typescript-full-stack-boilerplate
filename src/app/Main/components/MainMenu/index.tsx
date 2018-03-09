@@ -1,15 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { IMainMenuProps } from "./interfaces";
+import { NavLink } from "react-router-dom";
+import { IMenuItem } from "./interfaces";
+import items from "./mainMenuItems.json";
 
-const MainMenu = (props: IMainMenuProps) => {
+const MainMenu = () => {
   return (
     <nav>
-      {props.items.map(item => {
+      {(items as IMenuItem[]).map(item => {
         return (
-          <Link to={item.path} key={item.path}>
+          <NavLink
+            exact={item.path === "/"}
+            to={item.path}
+            key={item.path}
+            activeStyle={{ fontWeight: "bold" }}
+          >
             {item.title}
-          </Link>
+          </NavLink>
         );
       })}
     </nav>

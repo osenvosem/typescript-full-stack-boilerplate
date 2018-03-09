@@ -23,18 +23,4 @@ const localWebpackConfig = {
   watch: isDev
 };
 
-if (isDev) {
-  localWebpackConfig.stats = {
-    colors: true,
-    errors: true,
-    warnings: true,
-    modules: false,
-    version: false,
-    hash: false,
-    children: false,
-    entrypoints: false,
-    builtAt: false
-  };
-}
-
 module.exports = merge(commonWebpackConfig, localWebpackConfig);
