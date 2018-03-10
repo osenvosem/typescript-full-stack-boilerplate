@@ -5,7 +5,7 @@ import { Application, Handler } from "express";
 import Main from "../../../app/Main";
 import { IStaticContext } from "./interfaces";
 
-const clientAssets: string[] = JSON.parse(CLIENT_ASSETS);
+const assets: string[] = JSON.parse(CLIENT_ASSETS);
 
 const SSRHandler: Handler = (req, res, next) => {
   const context: IStaticContext = {};
@@ -33,7 +33,7 @@ const SSRHandler: Handler = (req, res, next) => {
       <body>
         <div id="root">${markup}</div>
 
-        ${clientAssets
+        ${assets
           .map(assetPath => {
             return `<script src="${assetPath}"></script>\n`;
           })

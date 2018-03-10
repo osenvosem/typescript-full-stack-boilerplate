@@ -8,7 +8,7 @@ const commonWebpackConfig = require("./common");
 
 const buildPaths = globalConfig.get("buildPaths");
 
-const publicPath = "/assets/";
+const publicPath = globalConfig.get("publicPath");
 const isDev = process.env.NODE_ENV === "development";
 
 const localWebpackConfig = {
@@ -47,7 +47,7 @@ if (isDev) {
     quiet: true
   };
 } else {
-  localWebpackConfig.plugins.push(new ManifestPlugin());
+  // localWebpackConfig.plugins.push(new ManifestPlugin());
 }
 
 module.exports = merge(commonWebpackConfig, localWebpackConfig);

@@ -10,6 +10,7 @@ const chalk = require("chalk");
 const nodemon = require("nodemon");
 
 const buildPaths = globalConfig.get("buildPaths");
+const publicPath = globalConfig.get("publicPath");
 const clientConfig = require("../config/webpack/client");
 const serverConfig = require("../config/webpack/server");
 
@@ -27,6 +28,8 @@ const compilationMessages = {
 const compilationInProgress = { client: false, server: false };
 let serverIsBeingWatched = false;
 let nodemonProcess = null;
+// `false` to disable clearing console
+const CC = true;
 
 /* UTILS */
 
@@ -34,7 +37,7 @@ const printErrors = rawErrors => {
   const errors = rawErrors.filter(
     (err, idx, arr) => !arr.includes(err, idx + 1)
   );
-  clearConsole();
+  if (CC) clearConsole();
   console.log(
     ERROR,
     chalk`{red Compilation failed with ${
@@ -48,10 +51,10 @@ const printWarnings = rawWarnings => {
   const warnings = rawWarnings.filter(
     (warn, idx, arr) => !arr.includes(warn, idx + 1)
   );
-  clearConsole();
+  if (CC) clearConsole();
   console.log(
     WARNING,
-    chalk`{yellow Client compilation completed with ${
+    chalk`{yellow Compilation completed with ${
       warnings.length > 1 ? `${warnings.length} warnings` : `a warning`
     }\n}`
   );
@@ -66,19 +69,19 @@ compilationInProgress.client = true;
 
 clientCompiler.plugin("invalid", function() {
   compilationInProgress.client = true;
-  clearConsole();
+  if (CC) clearConsole();
   console.log(WAIT);
 });
 
 clientCompiler.plugin("done", clientStats => {
   compilationInProgress.client = false;
 
-  compilationMessages.client = formatWebpackMessages(
-    clientStats.toJson({}, true)
-  );
+  const clientInfo = clientStats.toJson({}, true);
 
-  const clientAssets = Object.keys(clientStats.compilation.assets).map(
-    filename => clientConfig.output.publicPath + filename
+  compilationMessages.client = formatWebpackMessages(clientInfo);
+
+  const clientAssets = clientInfo.assets.map(
+    assetObj => `${publicPath}${assetObj.name}`
   );
 
   if (clientStats.hasErrors() || clientStats.hasWarnings()) {
@@ -104,7 +107,7 @@ clientCompiler.plugin("done", clientStats => {
     return;
   }
 
-  clearConsole();
+  if (CC) clearConsole();
   console.log(DONE);
 
   if (!serverIsBeingWatched) {
@@ -120,7 +123,7 @@ clientCompiler.plugin("done", clientStats => {
 
     serverCompiler.plugin("invalid", () => {
       compilationInProgress.server = true;
-      clearConsole();
+      if (CC) clearConsole();
       console.log(WAIT);
     });
 
@@ -137,10 +140,9 @@ clientCompiler.plugin("done", clientStats => {
 
         compilationInProgress.server = false;
         serverIsBeingWatched = true;
+        serverInfo = serverStats.toJson({}, true);
 
-        compilationMessages.server = formatWebpackMessages(
-          serverStats.toJson({}, true)
-        );
+        compilationMessages.server = formatWebpackMessages(serverInfo);
 
         if (serverStats.hasErrors() || serverStats.hasWarnings()) {
           if (compilationInProgress.client) return;
@@ -166,7 +168,7 @@ clientCompiler.plugin("done", clientStats => {
 
         // if there were client errors printed do not clear the console
         if (!compilationMessages.client.thereWasAnError) {
-          clearConsole();
+          if (CC) clearConsole();
           console.log(DONE);
         }
         compilationMessages.client.thereWasAnError = false;
@@ -174,9 +176,9 @@ clientCompiler.plugin("done", clientStats => {
         // run the server bundle
 
         // get the server bundle name
-        const serverFilename = Object.keys(
-          serverStats.compilation.assets
-        ).filter(filename => /\.js$/.test(filename))[0];
+        const serverFilename = serverInfo.assets
+          .map(assetObj => assetObj.name)
+          .filter(filename => /\.js$/.test(filename))[0];
 
         if (typeof serverFilename === "undefined") {
           throw new Error("Failed to get server bundle name.");
@@ -184,8 +186,7 @@ clientCompiler.plugin("done", clientStats => {
 
         if (!nodemonProcess) {
           nodemonProcess = nodemon({
-            script: `${buildPaths.server}/${serverFilename}`,
-            stdout: false
+            script: `${buildPaths.server}/${serverFilename}`
           });
         }
       }

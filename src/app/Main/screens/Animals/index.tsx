@@ -1,5 +1,11 @@
 import React, { SFC, CSSProperties } from "react";
-import { Route, NavLink, Switch, RouteComponentProps } from "react-router-dom";
+import {
+  Route,
+  NavLink,
+  Switch,
+  RouteComponentProps,
+  Redirect
+} from "react-router-dom";
 
 import Cats from "./screens/Cats";
 import Dogs from "./screens/Dogs";
@@ -48,6 +54,7 @@ const Animals: SFC<RouteComponentProps<{}>> = ({ match }) => {
       </nav>
       <article>
         <Switch>
+          <Redirect exact from={match.url} to={`${match.url}/cats`} />
           <Route exact path={`${match.url}/cats`} component={Cats} />
           <Route exact path={`${match.url}/dogs`} component={Dogs} />
           <Route exact path={`${match.url}/hamsters`} component={Hamsters} />
