@@ -27,30 +27,27 @@ const localWebpackConfig = {
       chunks: "all"
     }
   },
-  plugins: [
-    new ManifestPlugin({
-      writeToFileEmit: true,
-      fileName: buildPaths.manifestFilename
-    })
-  ]
+  plugins: [] // don't remove
 };
 
 if (isDev) {
   localWebpackConfig.entry.main.unshift(
-    "webpack-dev-server/client?http://localhost:3000/",
+    `webpack-dev-server/client?http://localhost:${globalConfig.wdsPort}/`,
     "webpack/hot/dev-server"
   );
   localWebpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
   localWebpackConfig.devServer = {
     publicPath,
-    port: 3000,
+    port: globalConfig.wdsPort,
     hot: true,
     overlay: true,
     proxy: {
-      [`!**${publicPath}*`]: "http://localhost:3001"
+      [`!**${publicPath}*`]: `http://localhost:${globalConfig.serverPort}`
     },
     quiet: true
   };
+} else {
+  localWebpackConfig.plugins.push(new ManifestPlugin());
 }
 
 module.exports = merge(commonWebpackConfig, localWebpackConfig);

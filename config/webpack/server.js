@@ -20,7 +20,8 @@ const localWebpackConfig = {
   devtool: "source-map",
   target: "node",
   externals: [nodeExternals()],
-  watch: isDev
+  watch: isDev,
+  plugins: [] // don't remove
 };
 
 module.exports = merge(commonWebpackConfig, localWebpackConfig);

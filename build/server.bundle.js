@@ -771,11 +771,13 @@ exports.default = _default2;
 "use strict";
 
 
+var _config = _interopRequireDefault(__webpack_require__(/*! config */ "config"));
+
 var _server = _interopRequireDefault(__webpack_require__(/*! ./server */ "./src/server/server.ts"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_server.default.listen(3001);
+_server.default.listen(_config.default.get("serverPort"));
 
 /***/ }),
 
@@ -802,8 +804,6 @@ var _reactRouter = __webpack_require__(/*! react-router */ "react-router");
 
 var _Main = _interopRequireDefault(__webpack_require__(/*! ../../../app/Main */ "./src/app/Main/index.tsx"));
 
-var _manifest = _interopRequireDefault(__webpack_require__(/*! ./manifest.json */ "./src/server/routes/SSR/manifest.json"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (function () {
@@ -811,6 +811,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
   enterModule && enterModule(module);
 })();
+
+var clientAssets = JSON.parse("[\"/assets/main.bundle.js\",\"/assets/vendors~main.chunk.js\"]");
 
 var SSRHandler = function SSRHandler(req, res, next) {
   var context = {};
@@ -822,8 +824,8 @@ var SSRHandler = function SSRHandler(req, res, next) {
   if (context.url) {
     res.redirect(context.status || 301, context.url);
   } else {
-    var html = "\n      <!DOCTYPE html>\n      <html lang=\"en\">\n\n      <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n        <title>Document</title>\n      </head>\n\n      <body>\n        <div id=\"root\">".concat(markup, "</div>\n\n        ").concat(Object.values(_manifest.default).map(function (assetPath) {
-      return "<script src=\"".concat(assetPath, "\"></script>");
+    var html = "\n      <!DOCTYPE html>\n      <html lang=\"en\">\n\n      <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n        <title>Document</title>\n      </head>\n\n      <body>\n        <div id=\"root\">".concat(markup, "</div>\n\n        ").concat(clientAssets.map(function (assetPath) {
+      return "<script src=\"".concat(assetPath, "\"></script>\n");
     }).join("\n"), "\n      </body>\n\n      </html>\n    ");
     res.send(html);
   }
@@ -843,6 +845,7 @@ exports.default = _default2;
     return;
   }
 
+  reactHotLoader.register(clientAssets, "clientAssets", "/Users/srg/Documents/dev/learning-react/src/server/routes/SSR/index.tsx");
   reactHotLoader.register(SSRHandler, "SSRHandler", "/Users/srg/Documents/dev/learning-react/src/server/routes/SSR/index.tsx");
   reactHotLoader.register(_default, "default", "/Users/srg/Documents/dev/learning-react/src/server/routes/SSR/index.tsx");
   leaveModule(module);
@@ -850,17 +853,6 @@ exports.default = _default2;
 
 ;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
-
-/***/ }),
-
-/***/ "./src/server/routes/SSR/manifest.json":
-/*!*********************************************!*\
-  !*** ./src/server/routes/SSR/manifest.json ***!
-  \*********************************************/
-/*! exports provided: main.js, vendors~main.js, default */
-/***/ (function(module) {
-
-module.exports = {"main.js":"/assets/main.bundle.js","vendors~main.js":"/assets/vendors~main.chunk.js"};
 
 /***/ }),
 
@@ -917,6 +909,17 @@ exports.default = _default2;
 
 ;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
+/***/ "config":
+/*!*************************!*\
+  !*** external "config" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("config");
 
 /***/ }),
 

@@ -4,7 +4,8 @@ import { StaticRouter } from "react-router";
 import { Application, Handler } from "express";
 import Main from "../../../app/Main";
 import { IStaticContext } from "./interfaces";
-import assetManifest from "./manifest.json";
+
+const clientAssets: string[] = JSON.parse(CLIENT_ASSETS);
 
 const SSRHandler: Handler = (req, res, next) => {
   const context: IStaticContext = {};
@@ -32,9 +33,9 @@ const SSRHandler: Handler = (req, res, next) => {
       <body>
         <div id="root">${markup}</div>
 
-        ${Object.values<string>(assetManifest)
+        ${clientAssets
           .map(assetPath => {
-            return `<script src="${assetPath}"></script>`;
+            return `<script src="${assetPath}"></script>\n`;
           })
           .join("\n")}
       </body>

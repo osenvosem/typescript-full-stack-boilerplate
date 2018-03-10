@@ -6,3 +6,5 @@ declare module "*.json";
 declare module "components/*";
 declare module "services/*";
 declare module "utils/*";
+
+declare const CLIENT_ASSETS: string;
