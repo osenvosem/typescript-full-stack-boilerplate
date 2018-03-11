@@ -2,8 +2,7 @@
   "name": "typescript-full-stack-boilerplate",
   "version": "1.0.0",
   "description": "Typescript full-stack boilerplate",
-  "author":
-    "Sergei Samsonov <osenvosem@gmail.com> (https://github.com/osenvosem)",
+  "author": "Sergei Samsonov <osenvosem@gmail.com> (https://github.com/osenvosem)",
   "license": "MIT",
   "scripts": {
     "start": "run-s start:dev",
@@ -26,7 +25,7 @@
     "@types/react-dom": "^16.0.4",
     "@types/react-router": "^4.0.22",
     "@types/react-router-dom": "^4.2.4",
-    "@types/webpack": "^4.0.0",
+    "@types/webpack": "^4.1.0",
     "@types/webpack-env": "^1.13.5",
     "babel-loader": "^8.0.0-beta.0",
     "chalk": "^2.3.2",
@@ -35,9 +34,7 @@
     "react-dev-utils": "^5.0.0",
     "react-hot-loader": "^4.0.0",
     "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.10",
-    "webpack-dev-server": "^3.1.0",
-    "webpack-manifest-plugin": "^2.0.0-rc.2",
+    "webpack-dev-server": "^3.1.1",
     "webpack-merge": "^4.1.1",
     "webpack-node-externals": "^1.6.0"
   },

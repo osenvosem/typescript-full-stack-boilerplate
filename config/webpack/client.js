@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
-const ManifestPlugin = require("webpack-manifest-plugin");
 const globalConfig = require("config");
 
 const commonWebpackConfig = require("./common");
