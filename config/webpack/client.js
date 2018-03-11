@@ -42,12 +42,11 @@ if (isDev) {
     hot: true,
     overlay: true,
     proxy: {
-      [`!**${publicPath}*`]: `http://localhost:${globalConfig.serverPort}`
+      [`!**${publicPath}*`]: `http://localhost:${globalConfig.serverPort}`,
+      proxyTimeout: 1000 * 60 * 3
     },
     quiet: true
   };
-} else {
-  // localWebpackConfig.plugins.push(new ManifestPlugin());
 }
 
 module.exports = merge(commonWebpackConfig, localWebpackConfig);

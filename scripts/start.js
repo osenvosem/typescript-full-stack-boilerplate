@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const cp = require("child_process");
 const webpack = require("webpack");
-const WDS = require("webpack-dev-server");
+const WebpackDevServer = require("webpack-dev-server");
 const globalConfig = require("config");
 const formatWebpackMessages = require("react-dev-utils/formatWebpackMessages");
 const clearConsole = require("react-dev-utils/clearConsole");
@@ -14,47 +14,69 @@ const publicPath = globalConfig.get("publicPath");
 const clientConfig = require("../config/webpack/client");
 const serverConfig = require("../config/webpack/server");
 
-const WAIT = chalk`{bgBlue.black  WAIT } {blue Compilation...}`;
-const DONE = chalk`{bgGreen.black  DONE } {green Compiled successfully}`;
-const ERROR = chalk`{bgRed.black  ERROR }`;
-const WARNING = chalk`{bgYellow.black  WARNING }`;
+let clientCompilationMessages = { errors: [], warnings: [] };
+let serverCompilationMessages = { errors: [], warnings: [] };
+let serverCompilationErrorHappened = false;
 
-// thereWasAnError is used to not show server DONE message if there was a client error printed
-const compilationMessages = {
-  client: { errors: [], warnings: [], thereWasAnError: false },
-  server: { errors: [], warnings: [] }
-};
-// is used to not print errors if there is a compilation in progress
-const compilationInProgress = { client: false, server: false };
-let serverIsBeingWatched = false;
+let serverWebpackWatcher = null;
 let nodemonProcess = null;
-// `false` to disable clearing console
-const CC = true;
 
 /* UTILS */
 
-const printErrors = rawErrors => {
-  const errors = rawErrors.filter(
-    (err, idx, arr) => !arr.includes(err, idx + 1)
-  );
-  if (CC) clearConsole();
+const printWait = side => {
+  if (typeof side !== "string")
+    throw new Error(
+      `The first argument must be a string, ${typeof side} given`
+    );
+
   console.log(
-    ERROR,
-    chalk`{red Compilation failed with ${
+    chalk`{bgBlue.black  ${side.toUpperCase()} } {blue compilation...}`
+  );
+};
+
+const printDone = side => {
+  if (typeof side !== "string")
+    throw new Error(
+      `The first argument must be a string, ${typeof side} given`
+    );
+
+  console.log(
+    chalk`{bgGreen.black  ${side.toUpperCase()} } {green compiled successfully}`
+  );
+};
+
+const printErrors = (side, errors) => {
+  if (typeof side !== "string")
+    throw new Error(
+      `The first argument must be a string, ${typeof side} given`
+    );
+
+  if (!Array.isArray(errors))
+    throw new Error(
+      `The second argument must be an array, ${typeof errors} given`
+    );
+
+  console.log(
+    chalk`{bgRed.black  ${side.toUpperCase()} } {red failed with ${
       errors.length > 1 ? `${errors.length} errors` : `an error`
     }\n}`
   );
   errors.forEach(err => console.log(err));
 };
 
-const printWarnings = rawWarnings => {
-  const warnings = rawWarnings.filter(
-    (warn, idx, arr) => !arr.includes(warn, idx + 1)
-  );
-  if (CC) clearConsole();
+const printWarnings = (side, warnings) => {
+  if (typeof side !== "string")
+    throw new Error(
+      `The first argument must be a string, ${typeof side} given`
+    );
+
+  if (!Array.isArray(warnings))
+    throw new Error(
+      `The second argument must be an array, ${typeof warnings} given`
+    );
+
   console.log(
-    WARNING,
-    chalk`{yellow Compilation completed with ${
+    chalk`{bgYellow.black  ${side.toUpperCase()} } {yellow completed with ${
       warnings.length > 1 ? `${warnings.length} warnings` : `a warning`
     }\n}`
   );
@@ -65,52 +87,34 @@ const printWarnings = rawWarnings => {
 
 const clientCompiler = webpack(clientConfig);
 
-compilationInProgress.client = true;
-
 clientCompiler.plugin("invalid", function() {
-  compilationInProgress.client = true;
-  if (CC) clearConsole();
-  console.log(WAIT);
+  printWait("client");
 });
 
 clientCompiler.plugin("done", clientStats => {
-  compilationInProgress.client = false;
-
   const clientInfo = clientStats.toJson({}, true);
 
-  compilationMessages.client = formatWebpackMessages(clientInfo);
+  clientCompilationMessages = formatWebpackMessages(clientInfo);
 
   const clientAssets = clientInfo.assets.map(
     assetObj => `${publicPath}${assetObj.name}`
   );
 
   if (clientStats.hasErrors() || clientStats.hasWarnings()) {
-    if (compilationInProgress.server) return;
-    compilationMessages.client.thereWasAnError = true;
-
     if (clientStats.hasErrors()) {
-      printErrors([
-        ...compilationMessages.client.errors,
-        ...compilationMessages.server.errors
-      ]);
-      compilationMessages.client.errors = compilationMessages.server.errors = [];
+      printErrors("client compilation", clientCompilationMessages.errors);
+      clientCompilationMessages.errors = [];
     }
 
     if (clientStats.hasWarnings()) {
-      printWarnings([
-        ...compilationMessages.client.warnings,
-        ...compilationMessages.server.warnings
-      ]);
-      compilationMessages.client.warnings = compilationMessages.server.warnings = [];
+      printWarnings("client compilation", clientCompilationMessages.warnings);
+      clientCompilationMessages.warnings = [];
     }
-
-    return;
+  } else {
+    printDone("client");
   }
 
-  if (CC) clearConsole();
-  console.log(DONE);
-
-  if (!serverIsBeingWatched) {
+  if (serverWebpackWatcher === null) {
     /* SERVER */
 
     serverConfig.plugins.push(
@@ -122,81 +126,79 @@ clientCompiler.plugin("done", clientStats => {
     const serverCompiler = webpack(serverConfig);
 
     serverCompiler.plugin("invalid", () => {
-      compilationInProgress.server = true;
-      if (CC) clearConsole();
-      console.log(WAIT);
+      printWait("server");
     });
 
-    const serverWebpackWatcher = serverCompiler.watch(
-      null,
-      (err, serverStats) => {
-        if (err) {
-          console.error(err.stack || err);
-          if (err.details) {
-            console.error(err.details);
-          }
-          return;
+    serverWebpackWatcher = serverCompiler.watch(null, (err, serverStats) => {
+      if (err) {
+        console.error(err.stack || err);
+        if (err.details) {
+          console.error(err.details);
         }
-
-        compilationInProgress.server = false;
-        serverIsBeingWatched = true;
-        serverInfo = serverStats.toJson({}, true);
-
-        compilationMessages.server = formatWebpackMessages(serverInfo);
-
-        if (serverStats.hasErrors() || serverStats.hasWarnings()) {
-          if (compilationInProgress.client) return;
-
-          if (serverStats.hasErrors()) {
-            printErrors([
-              ...compilationMessages.client.errors,
-              ...compilationMessages.server.errors
-            ]);
-            compilationMessages.client.errors = compilationMessages.server.errors = [];
-          }
-
-          if (serverStats.hasWarnings()) {
-            printWarnings([
-              ...compilationMessages.client.warnings,
-              ...compilationMessages.server.warnings
-            ]);
-            compilationMessages.client.warnings = compilationMessages.server.warnings = [];
-          }
-
-          return;
-        }
-
-        // if there were client errors printed do not clear the console
-        if (!compilationMessages.client.thereWasAnError) {
-          if (CC) clearConsole();
-          console.log(DONE);
-        }
-        compilationMessages.client.thereWasAnError = false;
-
-        // run the server bundle
-
-        // get the server bundle name
-        const serverFilename = serverInfo.assets
-          .map(assetObj => assetObj.name)
-          .filter(filename => /\.js$/.test(filename))[0];
-
-        if (typeof serverFilename === "undefined") {
-          throw new Error("Failed to get server bundle name.");
-        }
-
-        if (!nodemonProcess) {
-          nodemonProcess = nodemon({
-            script: `${buildPaths.server}/${serverFilename}`
-          });
-        }
+        return;
       }
-    );
+
+      const serverInfo = serverStats.toJson({}, true);
+
+      serverCompilationMessages = formatWebpackMessages(serverInfo);
+
+      if (serverStats.hasErrors() || serverStats.hasWarnings()) {
+        if (serverStats.hasErrors()) {
+          clearConsole();
+          printErrors("server compilation", serverCompilationMessages.errors);
+          serverCompilationMessages.errors = [];
+          serverCompilationErrorHappened = true;
+          return;
+        }
+
+        if (serverStats.hasWarnings()) {
+          printWarnings(
+            "server compilation",
+            serverCompilationMessages.warnings
+          );
+          serverCompilationMessages.warnings = [];
+        }
+      } else {
+        serverCompilationErrorHappened = false;
+        printDone("server");
+      }
+
+      // run the server bundle
+
+      // get the server bundle name
+      const serverFilename = serverInfo.assets
+        .map(assetObj => assetObj.name)
+        .filter(filename => /\.js$/.test(filename))[0];
+
+      if (typeof serverFilename === "undefined") {
+        throw new Error("Failed to get server bundle name.");
+      }
+
+      if (!nodemonProcess) {
+        nodemonProcess = nodemon({
+          script: `${buildPaths.server}/${serverFilename}`,
+          stdout: false
+        });
+        nodemonProcess.on("readable", function() {
+          if (serverCompilationErrorHappened) return;
+          this.stderr.on("data", data => {
+            console.log();
+            printErrors("server runtime", [data.toString()]);
+          });
+        });
+      }
+    });
   }
 });
 
-new WDS(clientCompiler, clientConfig.devServer).listen(3000);
+const devServer = new WebpackDevServer(clientCompiler, clientConfig.devServer);
+devServer.listen(globalConfig.get("wdsPort"), null, err => {
+  if (err) return console.error(err);
+});
 
-process.on("SIGINT", () => {
-  process.exit();
-  nodemonProcess.reset();
+["SIGINT", "SIGTERM"].forEach(sig => {
+  process.on(sig, () => {
+    process.exit();
+    devServer.close();
+  });
 });
