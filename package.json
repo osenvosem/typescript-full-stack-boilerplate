@@ -39,6 +39,7 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "config": "^1.30.0",
     "express": "^4.16.2",
     "react": "^16.2.0",

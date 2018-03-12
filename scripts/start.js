@@ -87,11 +87,11 @@ const printWarnings = (side, warnings) => {
 
 const clientCompiler = webpack(clientConfig);
 
-clientCompiler.plugin("invalid", function() {
+clientCompiler.hooks.invalid.tap({ name: "invalid" }, () => {
   printWait("client");
 });
 
-clientCompiler.plugin("done", clientStats => {
+clientCompiler.hooks.done.tap({ name: "done" }, clientStats => {
   const clientInfo = clientStats.toJson({}, true);
 
   clientCompilationMessages = formatWebpackMessages(clientInfo);
@@ -125,7 +125,7 @@ clientCompiler.plugin("done", clientStats => {
 
     const serverCompiler = webpack(serverConfig);
 
-    serverCompiler.plugin("invalid", () => {
+    serverCompiler.hooks.invalid.tap({ name: "invalid" }, () => {
       printWait("server");
     });
 
