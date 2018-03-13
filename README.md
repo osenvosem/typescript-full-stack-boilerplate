@@ -1,10 +1,10 @@
-A full-stack typescript boilerplate I made to use for starting my projects.
+A full-stack typescript boilerplate that was created for learning purposes and to bootstraping my projects.
 
 ## What's inside (will be complemented as the boilerplate evolves)
 
 * Webpack 4 and Babel 7 with typescript, env and stage 2 presets;
 * Express;
-* React, React Router;
+* React, React Router, React Loadable;
 * Server side rendering;
 * Client side hot module reloading;
 * Friendly errors;
