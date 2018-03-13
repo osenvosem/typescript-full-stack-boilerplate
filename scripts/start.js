@@ -129,6 +129,12 @@ clientCompiler.hooks.done.tap({ name: "done" }, clientStats => {
       printWait("server");
     });
 
+    // timefix
+    const timefix = 11000;
+    serverCompiler.hooks.done.tap({ name: "done" }, (err, stats) => {
+      stats.startTime -= timefix;
+    });
+
     serverWebpackWatcher = serverCompiler.watch(null, (err, serverStats) => {
       if (err) {
         console.error(err.stack || err);
@@ -137,6 +143,9 @@ clientCompiler.hooks.done.tap({ name: "done" }, clientStats => {
         }
         return;
       }
+
+      // timefix
+      serverWebpackWatcher.startTime += timefix;
 
       const serverInfo = serverStats.toJson({}, true);
 
