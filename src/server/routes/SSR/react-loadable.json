@@ -1,0 +1,797 @@
+{
+  "undefined": [
+    {
+      "id": 0,
+      "name": null,
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./node_modules/webpack/hot sync ^\\.\\/log$",
+      "name": "./node_modules/webpack/hot sync ^\\.\\/log$",
+      "file": "main.bundle.js"
+    }
+  ],
+  "./components/MainMenu/": [
+    {
+      "id": "./src/app/Main/components/MainMenu/index.tsx",
+      "name": "./src/app/Main/components/MainMenu/index.tsx",
+      "file": "main.bundle.js"
+    }
+  ],
+  "./mainMenuItems.json": [
+    {
+      "id": "./src/app/Main/components/MainMenu/mainMenuItems.json",
+      "name": "./src/app/Main/components/MainMenu/mainMenuItems.json",
+      "file": "main.bundle.js"
+    }
+  ],
+  "./app/Main/": [
+    {
+      "id": "./src/app/Main/index.tsx",
+      "name": "./src/app/Main/index.tsx",
+      "file": "main.bundle.js"
+    }
+  ],
+  "./screens/About": [
+    {
+      "id": "./src/app/Main/screens/About/index.tsx",
+      "name": "./src/app/Main/screens/About/index.tsx",
+      "file": "main.bundle.js"
+    }
+  ],
+  "./screens/Home/": [
+    {
+      "id": "./src/app/Main/screens/Home/index.tsx",
+      "name": "./src/app/Main/screens/Home/index.tsx",
+      "file": "main.bundle.js"
+    }
+  ],
+  "components/NotFound": [
+    {
+      "id": "./src/app/shared/components/NotFound/index.tsx",
+      "name": "./src/app/shared/components/NotFound/index.tsx",
+      "file": "main.bundle.js"
+    }
+  ],
+  "./src/client.tsx": [
+    {
+      "id": "./src/client.tsx",
+      "name": "./src/client.tsx",
+      "file": "main.bundle.js"
+    }
+  ],
+  "./screens/Animals": [
+    {
+      "id": "./src/app/Main/screens/Animals/index.tsx",
+      "name": "./src/app/Main/screens/Animals/index.tsx",
+      "file": "0.chunk.js"
+    }
+  ],
+  "./screens/Cats": [
+    {
+      "id": "./src/app/Main/screens/Animals/screens/Cats/index.tsx",
+      "name": "./src/app/Main/screens/Animals/screens/Cats/index.tsx",
+      "file": "0.chunk.js"
+    }
+  ],
+  "./screens/Dogs": [
+    {
+      "id": "./src/app/Main/screens/Animals/screens/Dogs/index.tsx",
+      "name": "./src/app/Main/screens/Animals/screens/Dogs/index.tsx",
+      "file": "0.chunk.js"
+    }
+  ],
+  "./screens/Hamsters": [
+    {
+      "id": "./src/app/Main/screens/Animals/screens/Hamsters/index.tsx",
+      "name": "./src/app/Main/screens/Animals/screens/Hamsters/index.tsx",
+      "file": "0.chunk.js"
+    }
+  ],
+  "ansi-html": [
+    {
+      "id": "./node_modules/ansi-html/index.js",
+      "name": "./node_modules/ansi-html/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "ansi-regex": [
+    {
+      "id": "./node_modules/ansi-regex/index.js",
+      "name": "./node_modules/ansi-regex/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "events": [
+    {
+      "id": "./node_modules/events/events.js",
+      "name": "./node_modules/events/events.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fast-levenshtein": [
+    {
+      "id": "./node_modules/fast-levenshtein/levenshtein.js",
+      "name": "./node_modules/fast-levenshtein/levenshtein.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/EventListener": [
+    {
+      "id": "./node_modules/fbjs/lib/EventListener.js",
+      "name": "./node_modules/fbjs/lib/EventListener.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/ExecutionEnvironment": [
+    {
+      "id": "./node_modules/fbjs/lib/ExecutionEnvironment.js",
+      "name": "./node_modules/fbjs/lib/ExecutionEnvironment.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./camelize": [
+    {
+      "id": "./node_modules/fbjs/lib/camelize.js",
+      "name": "./node_modules/fbjs/lib/camelize.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/camelizeStyleName": [
+    {
+      "id": "./node_modules/fbjs/lib/camelizeStyleName.js",
+      "name": "./node_modules/fbjs/lib/camelizeStyleName.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/containsNode": [
+    {
+      "id": "./node_modules/fbjs/lib/containsNode.js",
+      "name": "./node_modules/fbjs/lib/containsNode.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/emptyFunction": [
+    {
+      "id": "./node_modules/fbjs/lib/emptyFunction.js",
+      "name": "./node_modules/fbjs/lib/emptyFunction.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/emptyObject": [
+    {
+      "id": "./node_modules/fbjs/lib/emptyObject.js",
+      "name": "./node_modules/fbjs/lib/emptyObject.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/focusNode": [
+    {
+      "id": "./node_modules/fbjs/lib/focusNode.js",
+      "name": "./node_modules/fbjs/lib/focusNode.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/getActiveElement": [
+    {
+      "id": "./node_modules/fbjs/lib/getActiveElement.js",
+      "name": "./node_modules/fbjs/lib/getActiveElement.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./hyphenate": [
+    {
+      "id": "./node_modules/fbjs/lib/hyphenate.js",
+      "name": "./node_modules/fbjs/lib/hyphenate.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/hyphenateStyleName": [
+    {
+      "id": "./node_modules/fbjs/lib/hyphenateStyleName.js",
+      "name": "./node_modules/fbjs/lib/hyphenateStyleName.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/invariant": [
+    {
+      "id": "./node_modules/fbjs/lib/invariant.js",
+      "name": "./node_modules/fbjs/lib/invariant.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./isNode": [
+    {
+      "id": "./node_modules/fbjs/lib/isNode.js",
+      "name": "./node_modules/fbjs/lib/isNode.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./isTextNode": [
+    {
+      "id": "./node_modules/fbjs/lib/isTextNode.js",
+      "name": "./node_modules/fbjs/lib/isTextNode.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/shallowEqual": [
+    {
+      "id": "./node_modules/fbjs/lib/shallowEqual.js",
+      "name": "./node_modules/fbjs/lib/shallowEqual.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "fbjs/lib/warning": [
+    {
+      "id": "./node_modules/fbjs/lib/warning.js",
+      "name": "./node_modules/fbjs/lib/warning.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./DOMUtils": [
+    {
+      "id": "./node_modules/history/DOMUtils.js",
+      "name": "./node_modules/history/DOMUtils.js",
+      "file": "vendors~main.chunk.js"
+    },
+    {
+      "id": "./node_modules/history/es/DOMUtils.js",
+      "name": "./node_modules/history/es/DOMUtils.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./LocationUtils": [
+    {
+      "id": "./node_modules/history/LocationUtils.js",
+      "name": "./node_modules/history/LocationUtils.js",
+      "file": "vendors~main.chunk.js"
+    },
+    {
+      "id": "./node_modules/history/es/LocationUtils.js",
+      "name": "./node_modules/history/es/LocationUtils.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./PathUtils": [
+    {
+      "id": "./node_modules/history/PathUtils.js",
+      "name": "./node_modules/history/PathUtils.js",
+      "file": "vendors~main.chunk.js"
+    },
+    {
+      "id": "./node_modules/history/es/PathUtils.js",
+      "name": "./node_modules/history/es/PathUtils.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "history/createBrowserHistory": [
+    {
+      "id": "./node_modules/history/createBrowserHistory.js",
+      "name": "./node_modules/history/createBrowserHistory.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "history/createHashHistory": [
+    {
+      "id": "./node_modules/history/createHashHistory.js",
+      "name": "./node_modules/history/createHashHistory.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "history/createMemoryHistory": [
+    {
+      "id": "./node_modules/history/createMemoryHistory.js",
+      "name": "./node_modules/history/createMemoryHistory.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./createTransitionManager": [
+    {
+      "id": "./node_modules/history/createTransitionManager.js",
+      "name": "./node_modules/history/createTransitionManager.js",
+      "file": "vendors~main.chunk.js"
+    },
+    {
+      "id": "./node_modules/history/es/createTransitionManager.js",
+      "name": "./node_modules/history/es/createTransitionManager.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./createBrowserHistory": [
+    {
+      "id": "./node_modules/history/es/createBrowserHistory.js",
+      "name": "./node_modules/history/es/createBrowserHistory.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./createHashHistory": [
+    {
+      "id": "./node_modules/history/es/createHashHistory.js",
+      "name": "./node_modules/history/es/createHashHistory.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./createMemoryHistory": [
+    {
+      "id": "./node_modules/history/es/createMemoryHistory.js",
+      "name": "./node_modules/history/es/createMemoryHistory.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "history": [
+    {
+      "id": "./node_modules/history/es/index.js",
+      "name": "./node_modules/history/es/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "hoist-non-react-statics": [
+    {
+      "id": "./node_modules/hoist-non-react-statics/index.js",
+      "name": "./node_modules/hoist-non-react-statics/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "html-entities": [
+    {
+      "id": "./node_modules/html-entities/index.js",
+      "name": "./node_modules/html-entities/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./lib/html4-entities.js": [
+    {
+      "id": "./node_modules/html-entities/lib/html4-entities.js",
+      "name": "./node_modules/html-entities/lib/html4-entities.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./lib/html5-entities.js": [
+    {
+      "id": "./node_modules/html-entities/lib/html5-entities.js",
+      "name": "./node_modules/html-entities/lib/html5-entities.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./lib/xml-entities.js": [
+    {
+      "id": "./node_modules/html-entities/lib/xml-entities.js",
+      "name": "./node_modules/html-entities/lib/xml-entities.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "invariant": [
+    {
+      "id": "./node_modules/invariant/browser.js",
+      "name": "./node_modules/invariant/browser.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "loglevel": [
+    {
+      "id": "./node_modules/loglevel/lib/loglevel.js",
+      "name": "./node_modules/loglevel/lib/loglevel.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "object-assign": [
+    {
+      "id": "./node_modules/object-assign/index.js",
+      "name": "./node_modules/object-assign/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "prop-types/checkPropTypes": [
+    {
+      "id": "./node_modules/prop-types/checkPropTypes.js",
+      "name": "./node_modules/prop-types/checkPropTypes.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./factoryWithTypeCheckers": [
+    {
+      "id": "./node_modules/prop-types/factoryWithTypeCheckers.js",
+      "name": "./node_modules/prop-types/factoryWithTypeCheckers.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "prop-types": [
+    {
+      "id": "./node_modules/prop-types/index.js",
+      "name": "./node_modules/prop-types/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./lib/ReactPropTypesSecret": [
+    {
+      "id": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+      "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "punycode": [
+    {
+      "id": "./node_modules/punycode/punycode.js",
+      "name": "./node_modules/punycode/punycode.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./decode": [
+    {
+      "id": "./node_modules/querystring-es3/decode.js",
+      "name": "./node_modules/querystring-es3/decode.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./encode": [
+    {
+      "id": "./node_modules/querystring-es3/encode.js",
+      "name": "./node_modules/querystring-es3/encode.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "querystring": [
+    {
+      "id": "./node_modules/querystring-es3/index.js",
+      "name": "./node_modules/querystring-es3/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./cjs/react-dom.development.js": [
+    {
+      "id": "./node_modules/react-dom/cjs/react-dom.development.js",
+      "name": "./node_modules/react-dom/cjs/react-dom.development.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-dom": [
+    {
+      "id": "./node_modules/react-dom/index.js",
+      "name": "./node_modules/react-dom/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./dist/react-hot-loader.development.js": [
+    {
+      "id": "./node_modules/react-hot-loader/dist/react-hot-loader.development.js",
+      "name": "./node_modules/react-hot-loader/dist/react-hot-loader.development.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-hot-loader": [
+    {
+      "id": "./node_modules/react-hot-loader/index.js",
+      "name": "./node_modules/react-hot-loader/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-loadable": [
+    {
+      "id": "./node_modules/react-loadable/lib/index.js",
+      "name": "./node_modules/react-loadable/lib/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./BrowserRouter": [
+    {
+      "id": "./node_modules/react-router-dom/es/BrowserRouter.js",
+      "name": "./node_modules/react-router-dom/es/BrowserRouter.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./HashRouter": [
+    {
+      "id": "./node_modules/react-router-dom/es/HashRouter.js",
+      "name": "./node_modules/react-router-dom/es/HashRouter.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./Link": [
+    {
+      "id": "./node_modules/react-router-dom/es/Link.js",
+      "name": "./node_modules/react-router-dom/es/Link.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./MemoryRouter": [
+    {
+      "id": "./node_modules/react-router-dom/es/MemoryRouter.js",
+      "name": "./node_modules/react-router-dom/es/MemoryRouter.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./NavLink": [
+    {
+      "id": "./node_modules/react-router-dom/es/NavLink.js",
+      "name": "./node_modules/react-router-dom/es/NavLink.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./Prompt": [
+    {
+      "id": "./node_modules/react-router-dom/es/Prompt.js",
+      "name": "./node_modules/react-router-dom/es/Prompt.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./Redirect": [
+    {
+      "id": "./node_modules/react-router-dom/es/Redirect.js",
+      "name": "./node_modules/react-router-dom/es/Redirect.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./Route": [
+    {
+      "id": "./node_modules/react-router-dom/es/Route.js",
+      "name": "./node_modules/react-router-dom/es/Route.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./Router": [
+    {
+      "id": "./node_modules/react-router-dom/es/Router.js",
+      "name": "./node_modules/react-router-dom/es/Router.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./StaticRouter": [
+    {
+      "id": "./node_modules/react-router-dom/es/StaticRouter.js",
+      "name": "./node_modules/react-router-dom/es/StaticRouter.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./Switch": [
+    {
+      "id": "./node_modules/react-router-dom/es/Switch.js",
+      "name": "./node_modules/react-router-dom/es/Switch.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-router-dom": [
+    {
+      "id": "./node_modules/react-router-dom/es/index.js",
+      "name": "./node_modules/react-router-dom/es/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./matchPath": [
+    {
+      "id": "./node_modules/react-router-dom/es/matchPath.js",
+      "name": "./node_modules/react-router-dom/es/matchPath.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./withRouter": [
+    {
+      "id": "./node_modules/react-router-dom/es/withRouter.js",
+      "name": "./node_modules/react-router-dom/es/withRouter.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-router/es/MemoryRouter": [
+    {
+      "id": "./node_modules/react-router/es/MemoryRouter.js",
+      "name": "./node_modules/react-router/es/MemoryRouter.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-router/es/Prompt": [
+    {
+      "id": "./node_modules/react-router/es/Prompt.js",
+      "name": "./node_modules/react-router/es/Prompt.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-router/es/Redirect": [
+    {
+      "id": "./node_modules/react-router/es/Redirect.js",
+      "name": "./node_modules/react-router/es/Redirect.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-router/es/Route": [
+    {
+      "id": "./node_modules/react-router/es/Route.js",
+      "name": "./node_modules/react-router/es/Route.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-router/es/Router": [
+    {
+      "id": "./node_modules/react-router/es/Router.js",
+      "name": "./node_modules/react-router/es/Router.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-router/es/StaticRouter": [
+    {
+      "id": "./node_modules/react-router/es/StaticRouter.js",
+      "name": "./node_modules/react-router/es/StaticRouter.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-router/es/Switch": [
+    {
+      "id": "./node_modules/react-router/es/Switch.js",
+      "name": "./node_modules/react-router/es/Switch.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-router/es/matchPath": [
+    {
+      "id": "./node_modules/react-router/es/matchPath.js",
+      "name": "./node_modules/react-router/es/matchPath.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-router/es/withRouter": [
+    {
+      "id": "./node_modules/react-router/es/withRouter.js",
+      "name": "./node_modules/react-router/es/withRouter.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "isarray": [
+    {
+      "id": "./node_modules/react-router/node_modules/isarray/index.js",
+      "name": "./node_modules/react-router/node_modules/isarray/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "path-to-regexp": [
+    {
+      "id": "./node_modules/react-router/node_modules/path-to-regexp/index.js",
+      "name": "./node_modules/react-router/node_modules/path-to-regexp/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./cjs/react.development.js": [
+    {
+      "id": "./node_modules/react/cjs/react.development.js",
+      "name": "./node_modules/react/cjs/react.development.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react": [
+    {
+      "id": "./node_modules/react/index.js",
+      "name": "./node_modules/react/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "resolve-pathname": [
+    {
+      "id": "./node_modules/resolve-pathname/index.js",
+      "name": "./node_modules/resolve-pathname/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "shallowequal": [
+    {
+      "id": "./node_modules/shallowequal/index.js",
+      "name": "./node_modules/shallowequal/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "sockjs-client/dist/sockjs": [
+    {
+      "id": "./node_modules/sockjs-client/dist/sockjs.js",
+      "name": "./node_modules/sockjs-client/dist/sockjs.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "strip-ansi": [
+    {
+      "id": "./node_modules/strip-ansi/index.js",
+      "name": "./node_modules/strip-ansi/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "url": [
+    {
+      "id": "./node_modules/url/url.js",
+      "name": "./node_modules/url/url.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./util": [
+    {
+      "id": "./node_modules/url/util.js",
+      "name": "./node_modules/url/util.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "value-equal": [
+    {
+      "id": "./node_modules/value-equal/index.js",
+      "name": "./node_modules/value-equal/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "warning": [
+    {
+      "id": "./node_modules/warning/browser.js",
+      "name": "./node_modules/warning/browser.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "webpack-dev-server/client?http://localhost:3000/": [
+    {
+      "id": "./node_modules/webpack-dev-server/client/index.js?http://localhost:3000/",
+      "name": "./node_modules/webpack-dev-server/client/index.js?http://localhost:3000/",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./overlay": [
+    {
+      "id": "./node_modules/webpack-dev-server/client/overlay.js",
+      "name": "./node_modules/webpack-dev-server/client/overlay.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./socket": [
+    {
+      "id": "./node_modules/webpack-dev-server/client/socket.js",
+      "name": "./node_modules/webpack-dev-server/client/socket.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "!!webpack amd define": [
+    {
+      "id": "./node_modules/webpack/buildin/amd-define.js",
+      "name": "./node_modules/webpack/buildin/amd-define.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "!!webpack amd options": [
+    {
+      "id": "./node_modules/webpack/buildin/amd-options.js",
+      "name": "./node_modules/webpack/buildin/amd-options.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../webpack/buildin/global.js": [
+    {
+      "id": "./node_modules/webpack/buildin/global.js",
+      "name": "./node_modules/webpack/buildin/global.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../../../node_modules/webpack/buildin/module.js": [
+    {
+      "id": "./node_modules/webpack/buildin/module.js",
+      "name": "./node_modules/webpack/buildin/module.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "webpack/hot/dev-server": [
+    {
+      "id": "./node_modules/webpack/hot/dev-server.js",
+      "name": "./node_modules/webpack/hot/dev-server.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./emitter": [
+    {
+      "id": "./node_modules/webpack/hot/emitter.js",
+      "name": "./node_modules/webpack/hot/emitter.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./log-apply-result": [
+    {
+      "id": "./node_modules/webpack/hot/log-apply-result.js",
+      "name": "./node_modules/webpack/hot/log-apply-result.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./log": [
+    {
+      "id": "./node_modules/webpack/hot/log.js",
+      "name": "./node_modules/webpack/hot/log.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ]
+}

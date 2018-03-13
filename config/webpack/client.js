@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const globalConfig = require("config");
+const { ReactLoadablePlugin } = require("react-loadable/webpack");
 
 const commonWebpackConfig = require("./common");
 
@@ -26,7 +27,11 @@ const localWebpackConfig = {
       chunks: "all"
     }
   },
-  plugins: [] // don't remove
+  plugins: [
+    new ReactLoadablePlugin({
+      filename: "./src/server/routes/SSR/react-loadable.json"
+    })
+  ]
 };
 
 if (isDev) {

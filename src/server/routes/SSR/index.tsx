@@ -2,6 +2,11 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
 import { Application, Handler } from "express";
+import Loadable from "react-loadable";
+import { getBundles } from "react-loadable/webpack";
+import stats from "./react-loadable.json";
+import config from "config";
+
 import Main from "../../../app/Main";
 import { IStaticContext } from "./interfaces";
 
@@ -9,12 +14,17 @@ const assets: string[] = JSON.parse(CLIENT_ASSETS);
 
 const SSRHandler: Handler = (req, res, next) => {
   const context: IStaticContext = {};
+  const modules: string[] = [];
 
   const markup = renderToString(
     <StaticRouter location={req.url} context={context}>
-      <Main />
+      <Loadable.Capture report={moduleName => modules.push(moduleName)}>
+        <Main />
+      </Loadable.Capture>
     </StaticRouter>
   );
+
+  const bundles: { file: string }[] = getBundles(stats, modules);
 
   if (context.url) {
     res.redirect(context.status || 301, context.url);
@@ -32,6 +42,14 @@ const SSRHandler: Handler = (req, res, next) => {
 
       <body>
         <div id="root">${markup}</div>
+        
+        ${bundles
+          .map(bundle => {
+            return `<script src="${config.get("publicPath")}${
+              bundle.file
+            }"></script>`;
+          })
+          .join("\n")}
 
         ${assets
           .map(assetPath => {

@@ -8,3 +8,4 @@ declare module "services/*";
 declare module "utils/*";
 
 declare const CLIENT_ASSETS: string;
+declare module "react-loadable/webpack";

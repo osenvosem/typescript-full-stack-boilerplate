@@ -180,9 +180,10 @@ clientCompiler.hooks.done.tap({ name: "done" }, clientStats => {
           stdout: false
         });
         nodemonProcess.on("readable", function() {
-          if (serverCompilationErrorHappened) return;
+          this.stdout.pipe(process.stdout);
+
           this.stderr.on("data", data => {
-            console.log();
+            if (serverCompilationErrorHappened) return;
             printErrors("server runtime", [data.toString()]);
           });
         });
