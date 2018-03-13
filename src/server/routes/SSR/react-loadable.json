@@ -759,7 +759,7 @@
       "file": "vendors~main.chunk.js"
     }
   ],
-  "./../../../node_modules/webpack/buildin/module.js": [
+  "./../node_modules/webpack/buildin/module.js": [
     {
       "id": "./node_modules/webpack/buildin/module.js",
       "name": "./node_modules/webpack/buildin/module.js",

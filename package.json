@@ -2,14 +2,16 @@
   "name": "typescript-full-stack-boilerplate",
   "version": "1.0.0",
   "description": "Typescript full-stack boilerplate",
-  "author": "Sergei Samsonov <osenvosem@gmail.com> (https://github.com/osenvosem)",
+  "author":
+    "Sergei Samsonov <osenvosem@gmail.com> (https://github.com/osenvosem)",
   "license": "MIT",
   "scripts": {
     "start": "run-s start:dev",
     "start:dev": "NODE_ENV=development node scripts/start.js",
     "build": "NODE_ENV=production node scripts/build.js",
     "start:prod": "NODE_ENV=production node build/server.bundle.js",
-    "clean": "node scripts/clean"
+    "clean": "node scripts/clean",
+    "build:start:prod": "run-s clean build start:prod"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.40",

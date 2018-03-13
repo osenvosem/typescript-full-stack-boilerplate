@@ -24,6 +24,7 @@ const SSRHandler: Handler = (req, res, next) => {
     </StaticRouter>
   );
 
+  // this may not be needed
   const bundles: { file: string }[] = getBundles(stats, modules);
 
   if (context.url) {
@@ -43,13 +44,15 @@ const SSRHandler: Handler = (req, res, next) => {
       <body>
         <div id="root">${markup}</div>
         
-        ${bundles
-          .map(bundle => {
-            return `<script src="${config.get("publicPath")}${
-              bundle.file
-            }"></script>`;
-          })
-          .join("\n")}
+        ${
+          /* this may be not needed */ bundles
+            .map(bundle => {
+              return `<script src="${config.get("publicPath")}${
+                bundle.file
+              }"></script>`;
+            })
+            .join("\n")
+        }
 
         ${assets
           .map(assetPath => {

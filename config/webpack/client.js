@@ -19,8 +19,8 @@ const localWebpackConfig = {
   output: {
     path: path.resolve(buildPaths.client),
     publicPath,
-    filename: isDev ? "[name].bundle.js" : "[chunkhash].js",
-    chunkFilename: isDev ? "[name].chunk.js" : "[chunkhash].js"
+    filename: isDev ? "[name].bundle.js" : "[name].[chunkhash].js",
+    chunkFilename: isDev ? "[name].chunk.js" : "[name].[chunkhash].js"
   },
   optimization: {
     splitChunks: {
