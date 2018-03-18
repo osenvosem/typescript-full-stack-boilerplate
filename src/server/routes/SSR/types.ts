@@ -1,4 +1,4 @@
-export interface IStaticContext {
+export interface TStaticContext {
   url?: string;
   status?: number;
 }

@@ -9,3 +9,8 @@ declare module "utils/*";
 
 declare const CLIENT_ASSETS: string;
 declare module "react-loadable/webpack";
+
+interface Window {
+  __INITIAL_STATE__: object;
+  __REDUX_DEVTOOLS_EXTENSION__: () => any;
+}

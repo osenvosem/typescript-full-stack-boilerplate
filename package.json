@@ -2,8 +2,7 @@
   "name": "typescript-full-stack-boilerplate",
   "version": "1.0.0",
   "description": "Typescript full-stack boilerplate",
-  "author":
-    "Sergei Samsonov <osenvosem@gmail.com> (https://github.com/osenvosem)",
+  "author": "Sergei Samsonov <osenvosem@gmail.com> (https://github.com/osenvosem)",
   "license": "MIT",
   "scripts": {
     "start": "run-s start:dev",
@@ -14,25 +13,28 @@
     "build:start:prod": "run-s clean build start:prod"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.40",
-    "@babel/node": "^7.0.0-beta.40",
-    "@babel/preset-env": "^7.0.0-beta.40",
-    "@babel/preset-react": "^7.0.0-beta.40",
-    "@babel/preset-stage-2": "^7.0.0-beta.40",
-    "@babel/preset-typescript": "^7.0.0-beta.40",
+    "@babel/core": "^7.0.0-beta.42",
+    "@babel/node": "^7.0.0-beta.42",
+    "@babel/plugin-proposal-decorators": "^7.0.0-beta.42",
+    "@babel/preset-env": "^7.0.0-beta.42",
+    "@babel/preset-react": "^7.0.0-beta.42",
+    "@babel/preset-stage-2": "^7.0.0-beta.42",
+    "@babel/preset-typescript": "^7.0.0-beta.42",
+    "@types/axios": "^0.14.0",
     "@types/config": "^0.0.34",
     "@types/express": "^4.11.1",
     "@types/node": "^9.4.7",
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
     "@types/react-loadable": "^5.3.3",
-    "@types/react-router": "^4.0.22",
-    "@types/react-router-dom": "^4.2.4",
-    "@types/webpack": "^4.1.0",
+    "@types/react-redux": "^5.0.15",
+    "@types/react-router": "^4.0.23",
+    "@types/react-router-dom": "^4.2.5",
+    "@types/webpack": "^4.1.1",
     "@types/webpack-env": "^1.13.5",
     "babel-loader": "^8.0.0-beta.0",
     "chalk": "^2.3.2",
-    "nodemon": "^1.14.12",
+    "nodemon": "^1.17.2",
     "npm-run-all": "^4.1.2",
     "react-dev-utils": "^5.0.0",
     "react-hot-loader": "^4.0.0",
@@ -42,13 +44,14 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
-    "@types/axios": "^0.14.0",
     "axios": "^0.18.0",
     "config": "^1.30.0",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-loadable": "^5.3.1",
-    "react-router-dom": "^4.2.2"
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2"
   }
 }

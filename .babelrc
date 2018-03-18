@@ -12,7 +12,7 @@
     "@babel/preset-stage-2",
     "@babel/preset-react"
   ],
-  "plugins": ["react-loadable/babel"],
+  "plugins": ["react-loadable/babel", "@babel/plugin-proposal-decorators"],
   "env": {
     "development": {
       "presets": ["@babel/preset-env"],

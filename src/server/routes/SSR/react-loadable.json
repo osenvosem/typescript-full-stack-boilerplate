@@ -1,4 +1,16 @@
 {
+  "./screens/Home/": [
+    {
+      "id": "./src/common/Root/screens/Home/index.tsx",
+      "name": "./src/common/Root/screens/Home/index.tsx",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/Home/index.tsx",
+      "name": "./src/common/Root/screens/Home/index.tsx",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
+    }
+  ],
   "undefined": [
     {
       "id": 0,
@@ -9,48 +21,100 @@
       "id": "./node_modules/webpack/hot sync ^\\.\\/log$",
       "name": "./node_modules/webpack/hot sync ^\\.\\/log$",
       "file": "main.bundle.js"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
+    },
+    {
+      "id": "./node_modules/webpack/hot sync ^\\.\\/log$",
+      "name": "./node_modules/webpack/hot sync ^\\.\\/log$",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
+    }
+  ],
+  "./common/Root/": [
+    {
+      "id": "./src/common/Root/index.tsx",
+      "name": "./src/common/Root/index.tsx",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/index.tsx",
+      "name": "./src/common/Root/index.tsx",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
+    }
+  ],
+  "./common/configureStore": [
+    {
+      "id": "./src/common/configureStore.ts",
+      "name": "./src/common/configureStore.ts",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/configureStore.ts",
+      "name": "./src/common/configureStore.ts",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
+    }
+  ],
+  "./common/defaultState": [
+    {
+      "id": "./src/common/defaultState.ts",
+      "name": "./src/common/defaultState.ts",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/defaultState.ts",
+      "name": "./src/common/defaultState.ts",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
+    }
+  ],
+  "./types": [
+    {
+      "id": "./src/common/Root/screens/TodoApp/types.ts",
+      "name": "./src/common/Root/screens/TodoApp/types.ts",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/types.ts",
+      "name": "./src/common/Root/screens/TodoApp/types.ts",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
+    }
+  ],
+  "./Root/screens/TodoApp/reducer": [
+    {
+      "id": "./src/common/Root/screens/TodoApp/reducer.ts",
+      "name": "./src/common/Root/screens/TodoApp/reducer.ts",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/reducer.ts",
+      "name": "./src/common/Root/screens/TodoApp/reducer.ts",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
     }
   ],
   "./components/MainMenu/": [
     {
-      "id": "./src/app/Main/components/MainMenu/index.tsx",
-      "name": "./src/app/Main/components/MainMenu/index.tsx",
+      "id": "./src/common/Root/components/MainMenu/index.tsx",
+      "name": "./src/common/Root/components/MainMenu/index.tsx",
       "file": "main.bundle.js"
-    }
-  ],
-  "./mainMenuItems.json": [
+    },
     {
-      "id": "./src/app/Main/components/MainMenu/mainMenuItems.json",
-      "name": "./src/app/Main/components/MainMenu/mainMenuItems.json",
-      "file": "main.bundle.js"
-    }
-  ],
-  "./app/Main/": [
-    {
-      "id": "./src/app/Main/index.tsx",
-      "name": "./src/app/Main/index.tsx",
-      "file": "main.bundle.js"
-    }
-  ],
-  "./screens/About": [
-    {
-      "id": "./src/app/Main/screens/About/index.tsx",
-      "name": "./src/app/Main/screens/About/index.tsx",
-      "file": "main.bundle.js"
-    }
-  ],
-  "./screens/Home/": [
-    {
-      "id": "./src/app/Main/screens/Home/index.tsx",
-      "name": "./src/app/Main/screens/Home/index.tsx",
-      "file": "main.bundle.js"
+      "id": "./src/common/Root/components/MainMenu/index.tsx",
+      "name": "./src/common/Root/components/MainMenu/index.tsx",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
     }
   ],
   "components/NotFound": [
     {
-      "id": "./src/app/shared/components/NotFound/index.tsx",
-      "name": "./src/app/shared/components/NotFound/index.tsx",
+      "id": "./src/common/shared/components/NotFound/index.tsx",
+      "name": "./src/common/shared/components/NotFound/index.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/shared/components/NotFound/index.tsx",
+      "name": "./src/common/shared/components/NotFound/index.tsx",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
     }
   ],
   "./src/client.tsx": [
@@ -58,34 +122,107 @@
       "id": "./src/client.tsx",
       "name": "./src/client.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/client.tsx",
+      "name": "./src/client.tsx",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
     }
   ],
-  "./screens/Animals": [
+  "./screens/TodoApp": [
     {
-      "id": "./src/app/Main/screens/Animals/index.tsx",
-      "name": "./src/app/Main/screens/Animals/index.tsx",
-      "file": "0.chunk.js"
+      "id": "./src/common/Root/screens/TodoApp/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/index.tsx",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/index.tsx",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
     }
   ],
-  "./screens/Cats": [
+  "./mainMenuItems": [
     {
-      "id": "./src/app/Main/screens/Animals/screens/Cats/index.tsx",
-      "name": "./src/app/Main/screens/Animals/screens/Cats/index.tsx",
-      "file": "0.chunk.js"
+      "id": "./src/common/Root/mainMenuItems.ts",
+      "name": "./src/common/Root/mainMenuItems.ts",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/mainMenuItems.ts",
+      "name": "./src/common/Root/mainMenuItems.ts",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
     }
   ],
-  "./screens/Dogs": [
+  "./actionCreators": [
     {
-      "id": "./src/app/Main/screens/Animals/screens/Dogs/index.tsx",
-      "name": "./src/app/Main/screens/Animals/screens/Dogs/index.tsx",
-      "file": "0.chunk.js"
+      "id": "./src/common/Root/screens/TodoApp/actionCreators.ts",
+      "name": "./src/common/Root/screens/TodoApp/actionCreators.ts",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/actionCreators.ts",
+      "name": "./src/common/Root/screens/TodoApp/actionCreators.ts",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
     }
   ],
-  "./screens/Hamsters": [
+  "./components/TodoList": [
     {
-      "id": "./src/app/Main/screens/Animals/screens/Hamsters/index.tsx",
-      "name": "./src/app/Main/screens/Animals/screens/Hamsters/index.tsx",
-      "file": "0.chunk.js"
+      "id": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
+    }
+  ],
+  "./components/TodoInput": [
+    {
+      "id": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
+    }
+  ],
+  "./components/Filters": [
+    {
+      "id": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
+    }
+  ],
+  "./utils": [
+    {
+      "id": "./src/common/Root/screens/TodoApp/utils.ts",
+      "name": "./src/common/Root/screens/TodoApp/utils.ts",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/utils.ts",
+      "name": "./src/common/Root/screens/TodoApp/utils.ts",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
+    }
+  ],
+  "../TodoItem": [
+    {
+      "id": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
+      "file": "main.f8a96517789136eff3d4.hot-update.js"
     }
   ],
   "ansi-html": [
@@ -367,6 +504,76 @@
       "file": "vendors~main.chunk.js"
     }
   ],
+  "./_Symbol.js": [
+    {
+      "id": "./node_modules/lodash-es/_Symbol.js",
+      "name": "./node_modules/lodash-es/_Symbol.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./_baseGetTag.js": [
+    {
+      "id": "./node_modules/lodash-es/_baseGetTag.js",
+      "name": "./node_modules/lodash-es/_baseGetTag.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./_freeGlobal.js": [
+    {
+      "id": "./node_modules/lodash-es/_freeGlobal.js",
+      "name": "./node_modules/lodash-es/_freeGlobal.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./_getPrototype.js": [
+    {
+      "id": "./node_modules/lodash-es/_getPrototype.js",
+      "name": "./node_modules/lodash-es/_getPrototype.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./_getRawTag.js": [
+    {
+      "id": "./node_modules/lodash-es/_getRawTag.js",
+      "name": "./node_modules/lodash-es/_getRawTag.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./_objectToString.js": [
+    {
+      "id": "./node_modules/lodash-es/_objectToString.js",
+      "name": "./node_modules/lodash-es/_objectToString.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./_overArg.js": [
+    {
+      "id": "./node_modules/lodash-es/_overArg.js",
+      "name": "./node_modules/lodash-es/_overArg.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./_root.js": [
+    {
+      "id": "./node_modules/lodash-es/_root.js",
+      "name": "./node_modules/lodash-es/_root.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./isObjectLike.js": [
+    {
+      "id": "./node_modules/lodash-es/isObjectLike.js",
+      "name": "./node_modules/lodash-es/isObjectLike.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "lodash-es/isPlainObject": [
+    {
+      "id": "./node_modules/lodash-es/isPlainObject.js",
+      "name": "./node_modules/lodash-es/isPlainObject.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
   "loglevel": [
     {
       "id": "./node_modules/loglevel/lib/loglevel.js",
@@ -465,10 +672,108 @@
       "file": "vendors~main.chunk.js"
     }
   ],
-  "react-loadable": [
+  "./components/Provider": [
     {
-      "id": "./node_modules/react-loadable/lib/index.js",
-      "name": "./node_modules/react-loadable/lib/index.js",
+      "id": "./node_modules/react-redux/es/components/Provider.js",
+      "name": "./node_modules/react-redux/es/components/Provider.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./components/connectAdvanced": [
+    {
+      "id": "./node_modules/react-redux/es/components/connectAdvanced.js",
+      "name": "./node_modules/react-redux/es/components/connectAdvanced.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./connect/connect": [
+    {
+      "id": "./node_modules/react-redux/es/connect/connect.js",
+      "name": "./node_modules/react-redux/es/connect/connect.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./mapDispatchToProps": [
+    {
+      "id": "./node_modules/react-redux/es/connect/mapDispatchToProps.js",
+      "name": "./node_modules/react-redux/es/connect/mapDispatchToProps.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./mapStateToProps": [
+    {
+      "id": "./node_modules/react-redux/es/connect/mapStateToProps.js",
+      "name": "./node_modules/react-redux/es/connect/mapStateToProps.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./mergeProps": [
+    {
+      "id": "./node_modules/react-redux/es/connect/mergeProps.js",
+      "name": "./node_modules/react-redux/es/connect/mergeProps.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./selectorFactory": [
+    {
+      "id": "./node_modules/react-redux/es/connect/selectorFactory.js",
+      "name": "./node_modules/react-redux/es/connect/selectorFactory.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./verifySubselectors": [
+    {
+      "id": "./node_modules/react-redux/es/connect/verifySubselectors.js",
+      "name": "./node_modules/react-redux/es/connect/verifySubselectors.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./wrapMapToProps": [
+    {
+      "id": "./node_modules/react-redux/es/connect/wrapMapToProps.js",
+      "name": "./node_modules/react-redux/es/connect/wrapMapToProps.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "react-redux": [
+    {
+      "id": "./node_modules/react-redux/es/index.js",
+      "name": "./node_modules/react-redux/es/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "../utils/PropTypes": [
+    {
+      "id": "./node_modules/react-redux/es/utils/PropTypes.js",
+      "name": "./node_modules/react-redux/es/utils/PropTypes.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "../utils/Subscription": [
+    {
+      "id": "./node_modules/react-redux/es/utils/Subscription.js",
+      "name": "./node_modules/react-redux/es/utils/Subscription.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "../utils/shallowEqual": [
+    {
+      "id": "./node_modules/react-redux/es/utils/shallowEqual.js",
+      "name": "./node_modules/react-redux/es/utils/shallowEqual.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "../utils/verifyPlainObject": [
+    {
+      "id": "./node_modules/react-redux/es/utils/verifyPlainObject.js",
+      "name": "./node_modules/react-redux/es/utils/verifyPlainObject.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "../utils/warning": [
+    {
+      "id": "./node_modules/react-redux/es/utils/warning.js",
+      "name": "./node_modules/react-redux/es/utils/warning.js",
       "file": "vendors~main.chunk.js"
     }
   ],
@@ -661,6 +966,55 @@
       "file": "vendors~main.chunk.js"
     }
   ],
+  "./applyMiddleware": [
+    {
+      "id": "./node_modules/redux/es/applyMiddleware.js",
+      "name": "./node_modules/redux/es/applyMiddleware.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./bindActionCreators": [
+    {
+      "id": "./node_modules/redux/es/bindActionCreators.js",
+      "name": "./node_modules/redux/es/bindActionCreators.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./combineReducers": [
+    {
+      "id": "./node_modules/redux/es/combineReducers.js",
+      "name": "./node_modules/redux/es/combineReducers.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./compose": [
+    {
+      "id": "./node_modules/redux/es/compose.js",
+      "name": "./node_modules/redux/es/compose.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./createStore": [
+    {
+      "id": "./node_modules/redux/es/createStore.js",
+      "name": "./node_modules/redux/es/createStore.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "redux": [
+    {
+      "id": "./node_modules/redux/es/index.js",
+      "name": "./node_modules/redux/es/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./utils/warning": [
+    {
+      "id": "./node_modules/redux/es/utils/warning.js",
+      "name": "./node_modules/redux/es/utils/warning.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
   "resolve-pathname": [
     {
       "id": "./node_modules/resolve-pathname/index.js",
@@ -686,6 +1040,20 @@
     {
       "id": "./node_modules/strip-ansi/index.js",
       "name": "./node_modules/strip-ansi/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "symbol-observable": [
+    {
+      "id": "./node_modules/symbol-observable/es/index.js",
+      "name": "./node_modules/symbol-observable/es/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./ponyfill.js": [
+    {
+      "id": "./node_modules/symbol-observable/es/ponyfill.js",
+      "name": "./node_modules/symbol-observable/es/ponyfill.js",
       "file": "vendors~main.chunk.js"
     }
   ],
@@ -756,6 +1124,13 @@
     {
       "id": "./node_modules/webpack/buildin/global.js",
       "name": "./node_modules/webpack/buildin/global.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../../webpack/buildin/harmony-module.js": [
+    {
+      "id": "./node_modules/webpack/buildin/harmony-module.js",
+      "name": "./node_modules/webpack/buildin/harmony-module.js",
       "file": "vendors~main.chunk.js"
     }
   ],

@@ -6,22 +6,28 @@ import Loadable from "react-loadable";
 import { getBundles } from "react-loadable/webpack";
 import stats from "./react-loadable.json";
 import config from "config";
+import { Provider } from "react-redux";
 
-import Main from "../../../app/Main";
-import { IStaticContext } from "./interfaces";
+import Main from "../../../common/Root";
+import { TStaticContext } from "./types";
+import configureStore from "../../../common/configureStore";
+import defaultState from "../../../common/defaultState";
 
 const assets: string[] = JSON.parse(CLIENT_ASSETS);
 
 const SSRHandler: Handler = (req, res, next) => {
-  const context: IStaticContext = {};
+  const context: TStaticContext = {};
   const modules: string[] = [];
+  const store = configureStore(defaultState);
 
   const markup = renderToString(
-    <StaticRouter location={req.url} context={context}>
-      <Loadable.Capture report={moduleName => modules.push(moduleName)}>
-        <Main />
-      </Loadable.Capture>
-    </StaticRouter>
+    <Provider store={store}>
+      <StaticRouter location={req.url} context={context}>
+        <Loadable.Capture report={moduleName => modules.push(moduleName)}>
+          <Main />
+        </Loadable.Capture>
+      </StaticRouter>
+    </Provider>
   );
 
   // this may not be needed
