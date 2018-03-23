@@ -1,5 +1,5 @@
 import express from "express";
-import SSRHandler from "./routes/SSR";
+import { SSR, todoApp } from "./routes/";
 
 const app = express();
 
@@ -7,6 +7,9 @@ if (process.env.NODE_ENV === "production") {
   app.use("/assets/", express.static("public"));
 }
 
-app.use(SSRHandler);
+app.use(express.json());
+
+app.use("/api/v1/todoapp", todoApp);
+app.use(SSR);
 
 export default app;

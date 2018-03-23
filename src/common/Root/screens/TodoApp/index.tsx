@@ -9,8 +9,8 @@ import { filterTodos } from "./utils";
 
 import { TRootState } from "../../../types";
 import {
-  TTodoAppProps,
-  TTodoAppState,
+  TProps,
+  TState,
   TTodo,
   TAddTodoHandler,
   TRemoveTodoHandler,
@@ -20,8 +20,12 @@ import {
   TFilterChangeHandler
 } from "./types";
 
-class Todo extends Component<TTodoAppProps, TTodoAppState> {
+class Todo extends Component<TProps, TState> {
   readonly state = { inputValue: "" };
+
+  componentWillMount() {
+    if (!this.props.todos.length) this.props.fetchTodos();
+  }
 
   handleAddTodo: TAddTodoHandler = e => {
     this.props.addTodo(this.state.inputValue);
@@ -57,6 +61,7 @@ class Todo extends Component<TTodoAppProps, TTodoAppState> {
           onInputChange={this.handleInputChange}
           inputValue={this.state.inputValue}
         />
+        {this.props.todosRequested ? <p>Loading...</p> : null}
         <TodoList
           todos={todos}
           onAddTodo={this.handleAddTodo}
@@ -73,8 +78,7 @@ class Todo extends Component<TTodoAppProps, TTodoAppState> {
 }
 
 const mapStateToProps = (state: TRootState) => ({
-  todos: state.todoApp.todos,
-  filter: state.todoApp.filter
+  ...state.todoApp
 });
 
 export default connect(mapStateToProps, actions)(Todo);

@@ -11,16 +11,16 @@ import { Provider } from "react-redux";
 import Main from "../../../common/Root";
 import { TStaticContext } from "./types";
 import configureStore from "../../../common/configureStore";
-import defaultState from "../../../common/defaultState";
+import todoSaga from "../../../common/Root/screens/TodoApp/sagas";
 
 const assets: string[] = JSON.parse(CLIENT_ASSETS);
 
 const SSRHandler: Handler = (req, res, next) => {
   const context: TStaticContext = {};
   const modules: string[] = [];
-  const store = configureStore(defaultState);
+  const store = configureStore();
 
-  const markup = renderToString(
+  const rootComp = (
     <Provider store={store}>
       <StaticRouter location={req.url} context={context}>
         <Loadable.Capture report={moduleName => modules.push(moduleName)}>
@@ -36,7 +36,9 @@ const SSRHandler: Handler = (req, res, next) => {
   if (context.url) {
     res.redirect(context.status || 301, context.url);
   } else {
-    const html = `
+    // @ts-ignore
+    store.runSaga(todoSaga).done.then(() => {
+      const html = `
       <!DOCTYPE html>
       <html lang="en">
 
@@ -45,13 +47,16 @@ const SSRHandler: Handler = (req, res, next) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
-      </head>
-
-      <body>
-        <div id="root">${markup}</div>
+        </head>
         
+        <body>
+        <div id="root">${renderToString(rootComp)}</div>
+        
+        <script>window.__INITIAL_STATE__ = ${JSON.stringify(
+          store.getState()
+        )}</script>
         ${
-          /* this may be not needed */ bundles
+          /* this may not be needed */ bundles
             .map(bundle => {
               return `<script src="${config.get("publicPath")}${
                 bundle.file
@@ -69,7 +74,11 @@ const SSRHandler: Handler = (req, res, next) => {
 
       </html>
     `;
-    res.send(html);
+      res.send(html);
+    });
+    renderToString(rootComp);
+    // @ts-ignore
+    store.close();
   }
 };
 

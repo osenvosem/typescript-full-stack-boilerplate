@@ -47,7 +47,7 @@ if (isDev) {
     overlay: true,
     proxy: {
       [`!**${publicPath}*`]: `http://localhost:${globalConfig.serverPort}`,
-      proxyTimeout: 1000 * 60 * 3
+      proxyTimeout: 1000 * 60 * 5
     },
     quiet: true
   };

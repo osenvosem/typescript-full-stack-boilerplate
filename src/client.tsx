@@ -1,3 +1,4 @@
+import "babel-polyfill";
 import React from "react";
 import { render, hydrate } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
@@ -5,11 +6,10 @@ import { Provider } from "react-redux";
 
 import Main from "./common/Root/";
 import configureStore from "./common/configureStore";
-import defaultState from "./common/defaultState";
 
 const isDev = process.env.NODE_ENV;
 
-const store = configureStore(defaultState);
+const store = configureStore(window.__INITIAL_STATE__ || {});
 
 const RootComponent = (
   <Provider store={store}>

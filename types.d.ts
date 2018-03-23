@@ -11,6 +11,6 @@ declare const CLIENT_ASSETS: string;
 declare module "react-loadable/webpack";
 
 interface Window {
-  __INITIAL_STATE__: object;
+  __INITIAL_STATE__: any;
   __REDUX_DEVTOOLS_EXTENSION__: () => any;
 }

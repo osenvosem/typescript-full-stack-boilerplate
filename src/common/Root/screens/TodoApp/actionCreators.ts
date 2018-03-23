@@ -4,7 +4,9 @@ import {
   TToggleTodoActionCreator,
   ActionTypes,
   FilterTypes,
-  TFilterChangeActionCreator
+  TFilterChangeActionCreator,
+  ApiRequestTypes,
+  TFetchRequestedActionCreator
 } from "./types";
 
 export const addTodo: TAddTodoActionCreator = text => {
@@ -30,4 +32,8 @@ export const toggleTodo: TToggleTodoActionCreator = id => {
 
 export const changeFilter: TFilterChangeActionCreator = filter => {
   return { type: filter };
+};
+
+export const fetchTodos: TFetchRequestedActionCreator = () => {
+  return { type: ApiRequestTypes.TODOS_FETCH_REQUESTED };
 };

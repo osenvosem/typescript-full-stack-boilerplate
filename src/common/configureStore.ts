@@ -1,13 +1,16 @@
-import { createStore, combineReducers, compose } from "redux";
+import { createStore, combineReducers, compose, applyMiddleware } from "redux";
+import createSagaMiddleware, { END } from "redux-saga";
 
 import todoApp from "./Root/screens/TodoApp/reducer";
 
 import { TRootState } from "./types";
 
-const rootReducer = combineReducers({ todoApp });
-
-export default function configureStore(defaultState: TRootState) {
+export default function configureStore(defaultState?: TRootState) {
+  const rootReducer = combineReducers({ todoApp });
+  const sagaMiddleware = createSagaMiddleware();
   const enhancers = [];
+
+  enhancers.push(applyMiddleware(sagaMiddleware));
 
   if (
     typeof window === "object" &&
@@ -17,5 +20,14 @@ export default function configureStore(defaultState: TRootState) {
     enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION__());
   }
 
-  return createStore(rootReducer, defaultState, compose(...enhancers));
+  const store = createStore(
+    rootReducer,
+    defaultState || {},
+    compose(...enhancers)
+  );
+  // @ts-ignore
+  store.runSaga = sagaMiddleware.run;
+  // @ts-ignore
+  store.close = () => store.dispatch(END);
+  return store;
 }

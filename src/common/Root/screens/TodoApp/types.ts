@@ -7,17 +7,27 @@ export interface TTodo {
   readonly id: number;
 }
 
-export interface TTodoAppProps extends RouteComponentProps<{}> {
+export interface TProps extends RouteComponentProps<{}> {
   readonly todos: TTodo[];
   readonly filter: FilterTypes;
   readonly addTodo: (text: string) => TAddTodoAction;
   readonly removeTodo: (id: number) => TRemoveTodoAction;
   readonly toggleTodo: (id: number) => TToggleTodoAction;
   readonly changeFilter: (filter: string) => TFilterActions;
+  readonly fetchTodos: () => TFetchRequestedAction;
+  readonly todosRequested: boolean;
+  readonly error?: Error;
+}
+
+export interface TState {
+  readonly inputValue: string;
 }
 
 export interface TTodoAppState {
-  readonly inputValue: string;
+  readonly todos: TTodo[];
+  readonly filter: FilterTypes;
+  readonly todosRequested: boolean;
+  readonly error?: Error;
 }
 
 // Actions
@@ -29,17 +39,17 @@ export enum ActionTypes {
 }
 
 export interface TAddTodoAction {
-  readonly type: typeof ActionTypes.ADD_TODO;
+  readonly type: ActionTypes.ADD_TODO;
   readonly text: string;
 }
 
 export interface TRemoveTodoAction {
-  readonly type: typeof ActionTypes.REMOVE_TODO;
+  readonly type: ActionTypes.REMOVE_TODO;
   readonly id: number;
 }
 
 export interface TToggleTodoAction {
-  readonly type: typeof ActionTypes.TOGGLE_TODO;
+  readonly type: ActionTypes.TOGGLE_TODO;
   readonly id: number;
 }
 
@@ -98,4 +108,35 @@ export interface TFilterChangeHandler {
 
 export interface TFilterChangeActionCreator {
   (filter: FilterTypes): TFilterActions;
+}
+
+// api
+
+export enum ApiRequestTypes {
+  TODOS_FETCH_REQUESTED = "TODOS_FETCH_REQUESTED",
+  TODOS_FETCH_SUCCEEDED = "TODOS_FETCH_SUCCEEDED",
+  TODOS_FETCH_FAILED = "TODOS_FETCH_FAILED"
+}
+
+export interface TFetchRequestedAction {
+  type: ApiRequestTypes.TODOS_FETCH_REQUESTED;
+}
+
+export interface TFetchSuccededAction {
+  type: ApiRequestTypes.TODOS_FETCH_SUCCEEDED;
+  todos: TTodo[];
+}
+
+export interface TFetchFailedAction {
+  type: ApiRequestTypes.TODOS_FETCH_FAILED;
+  error: Error;
+}
+
+export type TApiFetchActions =
+  | TFetchRequestedAction
+  | TFetchSuccededAction
+  | TFetchFailedAction;
+
+export interface TFetchRequestedActionCreator {
+  (): TFetchRequestedAction;
 }
