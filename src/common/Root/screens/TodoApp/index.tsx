@@ -5,7 +5,7 @@ import * as actions from "./actionCreators";
 import TodoList from "./components/TodoList";
 import TodoInput from "./components/TodoInput";
 import Filters from "./components/Filters";
-import { filterTodos } from "./utils";
+import { filterTodos, generateId } from "./utils";
 
 import { TRootState } from "../../../types";
 import {
@@ -28,7 +28,10 @@ class Todo extends Component<TProps, TState> {
   }
 
   handleAddTodo: TAddTodoHandler = e => {
-    this.props.addTodo(this.state.inputValue);
+    const { inputValue } = this.state;
+    if (!inputValue.length) return;
+    const id = generateId(this.props.todos);
+    this.props.addTodo(inputValue, id);
     this.setState({ inputValue: "" });
   };
 

@@ -8,6 +8,7 @@ import {
   TApiFetchActions,
   ApiRequestTypes
 } from "./types";
+import { generateId } from "./utils";
 
 export function filter(state: FilterTypes, action: TFilterActions) {
   return action.type;
@@ -16,8 +17,8 @@ export function filter(state: FilterTypes, action: TFilterActions) {
 export function todos(state: TTodo[], action: TTodoActions): TTodo[] {
   switch (action.type) {
     case ActionTypes.ADD_TODO:
-      const maxId = state.length ? Math.max(...state.map(todo => todo.id)) : 0;
-      return [...state, { text: action.text, id: maxId + 1, completed: false }];
+      const { text, id } = action;
+      return [...state, { text, id, completed: false }];
     case ActionTypes.REMOVE_TODO:
       const idx = state.findIndex(todo => todo.id === action.id);
       return [...state.slice(0, idx), ...state.slice(idx + 1)];

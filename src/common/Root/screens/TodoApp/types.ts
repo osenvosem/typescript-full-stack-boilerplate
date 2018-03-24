@@ -10,7 +10,7 @@ export interface TTodo {
 export interface TProps extends RouteComponentProps<{}> {
   readonly todos: TTodo[];
   readonly filter: FilterTypes;
-  readonly addTodo: (text: string) => TAddTodoAction;
+  readonly addTodo: (text: string, id: number) => TAddTodoAction;
   readonly removeTodo: (id: number) => TRemoveTodoAction;
   readonly toggleTodo: (id: number) => TToggleTodoAction;
   readonly changeFilter: (filter: string) => TFilterActions;
@@ -41,6 +41,7 @@ export enum ActionTypes {
 export interface TAddTodoAction {
   readonly type: ActionTypes.ADD_TODO;
   readonly text: string;
+  id: number;
 }
 
 export interface TRemoveTodoAction {
@@ -61,7 +62,7 @@ export type TTodoActions =
 // Action creators
 
 export interface TAddTodoActionCreator {
-  (text: string): TAddTodoAction;
+  (text: string, id: number): TAddTodoAction;
 }
 
 export interface TRemoveTodoActionCreator {
@@ -110,12 +111,18 @@ export interface TFilterChangeActionCreator {
   (filter: FilterTypes): TFilterActions;
 }
 
-// api
+// API
 
 export enum ApiRequestTypes {
   TODOS_FETCH_REQUESTED = "TODOS_FETCH_REQUESTED",
   TODOS_FETCH_SUCCEEDED = "TODOS_FETCH_SUCCEEDED",
-  TODOS_FETCH_FAILED = "TODOS_FETCH_FAILED"
+  TODOS_FETCH_FAILED = "TODOS_FETCH_FAILED",
+  POST_TODO_SUCCEEDED = "POST_TODO_SUCCEEDED",
+  POST_TODO_FAILED = "POST_TODO_FAILED",
+  REMOVE_TODO_SUCCEEDED = "REMOVE_TODO_SUCCEEDED",
+  REMOVE_TODO_FAILED = "REMOVE_TODO_FAILED",
+  CHANGE_COMPLETED_SUCCEEDED = "CHANGE_COMPLETED_SUCCEEDED",
+  CHANGE_COMPLETED_FAILED = "CHANGE_COMPLETED_FAILED"
 }
 
 export interface TFetchRequestedAction {

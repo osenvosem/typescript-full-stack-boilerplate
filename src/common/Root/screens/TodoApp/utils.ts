@@ -12,3 +12,7 @@ export const filterTodos = (todos: TTodo[], filter: FilterTypes): TTodo[] => {
       return todos;
   }
 };
+
+export const generateId = (todos: TTodo[]) => {
+  return todos.length ? Math.max(...todos.map(todo => todo.id)) + 1 : 0;
+};

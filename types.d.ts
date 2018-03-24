@@ -14,3 +14,9 @@ interface Window {
   __INITIAL_STATE__: any;
   __REDUX_DEVTOOLS_EXTENSION__: () => any;
 }
+
+declare namespace Express {
+  export interface Request {
+    todoId: number;
+  }
+}

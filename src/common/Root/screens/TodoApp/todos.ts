@@ -1,5 +1,5 @@
 export default [
-  { text: "Do something.", completed: false, id: 1 },
-  { text: "Do something else.", completed: false, id: 2 },
-  { text: "Wait a little and do more.", completed: true, id: 3 }
+  { text: "Learn React.", completed: true, id: 1 },
+  { text: "Also learn Redux.", completed: true, id: 2 },
+  { text: "Gain some strength and learn Redux Saga", completed: false, id: 3 }
 ];

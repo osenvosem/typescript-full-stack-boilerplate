@@ -9,10 +9,11 @@ import {
   TFetchRequestedActionCreator
 } from "./types";
 
-export const addTodo: TAddTodoActionCreator = text => {
+export const addTodo: TAddTodoActionCreator = (text, id) => {
   return {
     type: ActionTypes.ADD_TODO,
-    text
+    text,
+    id
   };
 };
 

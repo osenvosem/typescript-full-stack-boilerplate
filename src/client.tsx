@@ -6,10 +6,13 @@ import { Provider } from "react-redux";
 
 import Main from "./common/Root/";
 import configureStore from "./common/configureStore";
+import todoAppSaga from "./common/Root/screens/TodoApp/sagas";
 
 const isDev = process.env.NODE_ENV;
 
-const store = configureStore(window.__INITIAL_STATE__ || {});
+const store = configureStore(window.__INITIAL_STATE__);
+// @ts-ignore
+store.runSaga(todoAppSaga);
 
 const RootComponent = (
   <Provider store={store}>

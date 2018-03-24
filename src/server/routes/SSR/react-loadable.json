@@ -1,14 +1,9 @@
 {
-  "./screens/TodoApp": [
+  "components/NotFound": [
     {
-      "id": "./src/common/Root/screens/TodoApp/index.tsx",
-      "name": "./src/common/Root/screens/TodoApp/index.tsx",
+      "id": "./src/common/shared/components/NotFound/index.tsx",
+      "name": "./src/common/shared/components/NotFound/index.tsx",
       "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/Root/screens/TodoApp/index.tsx",
-      "name": "./src/common/Root/screens/TodoApp/index.tsx",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
     }
   ],
   "undefined": [
@@ -21,16 +16,6 @@
       "id": "./node_modules/webpack/hot sync ^\\.\\/log$",
       "name": "./node_modules/webpack/hot sync ^\\.\\/log$",
       "file": "main.bundle.js"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
-    },
-    {
-      "id": "./node_modules/webpack/hot sync ^\\.\\/log$",
-      "name": "./node_modules/webpack/hot sync ^\\.\\/log$",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
     }
   ],
   "./common/Root/": [
@@ -38,11 +23,6 @@
       "id": "./src/common/Root/index.tsx",
       "name": "./src/common/Root/index.tsx",
       "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/Root/index.tsx",
-      "name": "./src/common/Root/index.tsx",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
     }
   ],
   "./common/configureStore": [
@@ -50,23 +30,20 @@
       "id": "./src/common/configureStore.ts",
       "name": "./src/common/configureStore.ts",
       "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/configureStore.ts",
-      "name": "./src/common/configureStore.ts",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
     }
   ],
-  "./Root/screens/TodoApp/reducer": [
+  "./common/Root/screens/TodoApp/sagas": [
     {
-      "id": "./src/common/Root/screens/TodoApp/reducer.ts",
-      "name": "./src/common/Root/screens/TodoApp/reducer.ts",
+      "id": "./src/common/Root/screens/TodoApp/sagas.ts",
+      "name": "./src/common/Root/screens/TodoApp/sagas.ts",
       "file": "main.bundle.js"
-    },
+    }
+  ],
+  "./apiService": [
     {
-      "id": "./src/common/Root/screens/TodoApp/reducer.ts",
-      "name": "./src/common/Root/screens/TodoApp/reducer.ts",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
+      "id": "./src/common/Root/screens/TodoApp/apiService.ts",
+      "name": "./src/common/Root/screens/TodoApp/apiService.ts",
+      "file": "main.bundle.js"
     }
   ],
   "./types": [
@@ -74,11 +51,20 @@
       "id": "./src/common/Root/screens/TodoApp/types.ts",
       "name": "./src/common/Root/screens/TodoApp/types.ts",
       "file": "main.bundle.js"
-    },
+    }
+  ],
+  "./todos": [
     {
-      "id": "./src/common/Root/screens/TodoApp/types.ts",
-      "name": "./src/common/Root/screens/TodoApp/types.ts",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
+      "id": "./src/common/Root/screens/TodoApp/todos.ts",
+      "name": "./src/common/Root/screens/TodoApp/todos.ts",
+      "file": "main.bundle.js"
+    }
+  ],
+  "./Root/screens/TodoApp/reducer": [
+    {
+      "id": "./src/common/Root/screens/TodoApp/reducer.ts",
+      "name": "./src/common/Root/screens/TodoApp/reducer.ts",
+      "file": "main.bundle.js"
     }
   ],
   "./components/MainMenu/": [
@@ -86,35 +72,6 @@
       "id": "./src/common/Root/components/MainMenu/index.tsx",
       "name": "./src/common/Root/components/MainMenu/index.tsx",
       "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/Root/components/MainMenu/index.tsx",
-      "name": "./src/common/Root/components/MainMenu/index.tsx",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
-    }
-  ],
-  "components/NotFound": [
-    {
-      "id": "./src/common/shared/components/NotFound/index.tsx",
-      "name": "./src/common/shared/components/NotFound/index.tsx",
-      "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/shared/components/NotFound/index.tsx",
-      "name": "./src/common/shared/components/NotFound/index.tsx",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
-    }
-  ],
-  "./screens/Home/": [
-    {
-      "id": "./src/common/Root/screens/Home/index.tsx",
-      "name": "./src/common/Root/screens/Home/index.tsx",
-      "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/Root/screens/Home/index.tsx",
-      "name": "./src/common/Root/screens/Home/index.tsx",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
     }
   ],
   "./src/client.tsx": [
@@ -122,11 +79,20 @@
       "id": "./src/client.tsx",
       "name": "./src/client.tsx",
       "file": "main.bundle.js"
-    },
+    }
+  ],
+  "./screens/Home/": [
     {
-      "id": "./src/client.tsx",
-      "name": "./src/client.tsx",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
+      "id": "./src/common/Root/screens/Home/index.tsx",
+      "name": "./src/common/Root/screens/Home/index.tsx",
+      "file": "main.bundle.js"
+    }
+  ],
+  "./screens/TodoApp": [
+    {
+      "id": "./src/common/Root/screens/TodoApp/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/index.tsx",
+      "file": "main.bundle.js"
     }
   ],
   "./mainMenuItems": [
@@ -134,11 +100,6 @@
       "id": "./src/common/Root/mainMenuItems.ts",
       "name": "./src/common/Root/mainMenuItems.ts",
       "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/Root/mainMenuItems.ts",
-      "name": "./src/common/Root/mainMenuItems.ts",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
     }
   ],
   "./actionCreators": [
@@ -146,11 +107,6 @@
       "id": "./src/common/Root/screens/TodoApp/actionCreators.ts",
       "name": "./src/common/Root/screens/TodoApp/actionCreators.ts",
       "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/Root/screens/TodoApp/actionCreators.ts",
-      "name": "./src/common/Root/screens/TodoApp/actionCreators.ts",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
     }
   ],
   "./components/TodoList": [
@@ -158,11 +114,6 @@
       "id": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
       "name": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
       "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
-      "name": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
     }
   ],
   "./components/TodoInput": [
@@ -170,11 +121,6 @@
       "id": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
       "name": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
       "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
-      "name": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
     }
   ],
   "./components/Filters": [
@@ -182,11 +128,6 @@
       "id": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
       "name": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
       "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
-      "name": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
     }
   ],
   "./utils": [
@@ -196,9 +137,9 @@
       "file": "main.bundle.js"
     },
     {
-      "id": "./src/common/Root/screens/TodoApp/utils.ts",
-      "name": "./src/common/Root/screens/TodoApp/utils.ts",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
+      "id": "./node_modules/axios/lib/utils.js",
+      "name": "./node_modules/axios/lib/utils.js",
+      "file": "vendors~main.chunk.js"
     },
     {
       "id": "./node_modules/redux-saga/es/utils.js",
@@ -211,11 +152,6 @@
       "id": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
       "name": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
       "file": "main.bundle.js"
-    },
-    {
-      "id": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
-      "name": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
-      "file": "main.997b0fd3262cbd1c7486.hot-update.js"
     }
   ],
   "ansi-html": [
@@ -232,17 +168,178 @@
       "file": "vendors~main.chunk.js"
     }
   ],
+  "axios": [
+    {
+      "id": "./node_modules/axios/index.js",
+      "name": "./node_modules/axios/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./adapters/xhr": [
+    {
+      "id": "./node_modules/axios/lib/adapters/xhr.js",
+      "name": "./node_modules/axios/lib/adapters/xhr.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./lib/axios": [
+    {
+      "id": "./node_modules/axios/lib/axios.js",
+      "name": "./node_modules/axios/lib/axios.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./cancel/Cancel": [
+    {
+      "id": "./node_modules/axios/lib/cancel/Cancel.js",
+      "name": "./node_modules/axios/lib/cancel/Cancel.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./cancel/CancelToken": [
+    {
+      "id": "./node_modules/axios/lib/cancel/CancelToken.js",
+      "name": "./node_modules/axios/lib/cancel/CancelToken.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./cancel/isCancel": [
+    {
+      "id": "./node_modules/axios/lib/cancel/isCancel.js",
+      "name": "./node_modules/axios/lib/cancel/isCancel.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./core/Axios": [
+    {
+      "id": "./node_modules/axios/lib/core/Axios.js",
+      "name": "./node_modules/axios/lib/core/Axios.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./InterceptorManager": [
+    {
+      "id": "./node_modules/axios/lib/core/InterceptorManager.js",
+      "name": "./node_modules/axios/lib/core/InterceptorManager.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "../core/createError": [
+    {
+      "id": "./node_modules/axios/lib/core/createError.js",
+      "name": "./node_modules/axios/lib/core/createError.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./dispatchRequest": [
+    {
+      "id": "./node_modules/axios/lib/core/dispatchRequest.js",
+      "name": "./node_modules/axios/lib/core/dispatchRequest.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./enhanceError": [
+    {
+      "id": "./node_modules/axios/lib/core/enhanceError.js",
+      "name": "./node_modules/axios/lib/core/enhanceError.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../core/settle": [
+    {
+      "id": "./node_modules/axios/lib/core/settle.js",
+      "name": "./node_modules/axios/lib/core/settle.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./transformData": [
+    {
+      "id": "./node_modules/axios/lib/core/transformData.js",
+      "name": "./node_modules/axios/lib/core/transformData.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./defaults": [
+    {
+      "id": "./node_modules/axios/lib/defaults.js",
+      "name": "./node_modules/axios/lib/defaults.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./helpers/bind": [
+    {
+      "id": "./node_modules/axios/lib/helpers/bind.js",
+      "name": "./node_modules/axios/lib/helpers/bind.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../helpers/btoa": [
+    {
+      "id": "./node_modules/axios/lib/helpers/btoa.js",
+      "name": "./node_modules/axios/lib/helpers/btoa.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../helpers/buildURL": [
+    {
+      "id": "./node_modules/axios/lib/helpers/buildURL.js",
+      "name": "./node_modules/axios/lib/helpers/buildURL.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../helpers/combineURLs": [
+    {
+      "id": "./node_modules/axios/lib/helpers/combineURLs.js",
+      "name": "./node_modules/axios/lib/helpers/combineURLs.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../helpers/cookies": [
+    {
+      "id": "./node_modules/axios/lib/helpers/cookies.js",
+      "name": "./node_modules/axios/lib/helpers/cookies.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../helpers/isAbsoluteURL": [
+    {
+      "id": "./node_modules/axios/lib/helpers/isAbsoluteURL.js",
+      "name": "./node_modules/axios/lib/helpers/isAbsoluteURL.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../helpers/isURLSameOrigin": [
+    {
+      "id": "./node_modules/axios/lib/helpers/isURLSameOrigin.js",
+      "name": "./node_modules/axios/lib/helpers/isURLSameOrigin.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./helpers/normalizeHeaderName": [
+    {
+      "id": "./node_modules/axios/lib/helpers/normalizeHeaderName.js",
+      "name": "./node_modules/axios/lib/helpers/normalizeHeaderName.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../helpers/parseHeaders": [
+    {
+      "id": "./node_modules/axios/lib/helpers/parseHeaders.js",
+      "name": "./node_modules/axios/lib/helpers/parseHeaders.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./helpers/spread": [
+    {
+      "id": "./node_modules/axios/lib/helpers/spread.js",
+      "name": "./node_modules/axios/lib/helpers/spread.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
   "babel-polyfill": [
     {
       "id": "./node_modules/babel-polyfill/lib/index.js",
       "name": "./node_modules/babel-polyfill/lib/index.js",
-      "file": "vendors~main.chunk.js"
-    }
-  ],
-  "regenerator-runtime/runtime": [
-    {
-      "id": "./node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js",
-      "name": "./node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js",
       "file": "vendors~main.chunk.js"
     }
   ],
@@ -2664,10 +2761,15 @@
       "file": "vendors~main.chunk.js"
     }
   ],
-  "history/PathUtils": [
+  "./PathUtils": [
     {
       "id": "./node_modules/history/PathUtils.js",
       "name": "./node_modules/history/PathUtils.js",
+      "file": "vendors~main.chunk.js"
+    },
+    {
+      "id": "./node_modules/history/es/PathUtils.js",
+      "name": "./node_modules/history/es/PathUtils.js",
       "file": "vendors~main.chunk.js"
     }
   ],
@@ -2701,13 +2803,6 @@
     {
       "id": "./node_modules/history/es/createTransitionManager.js",
       "name": "./node_modules/history/es/createTransitionManager.js",
-      "file": "vendors~main.chunk.js"
-    }
-  ],
-  "./PathUtils": [
-    {
-      "id": "./node_modules/history/es/PathUtils.js",
-      "name": "./node_modules/history/es/PathUtils.js",
       "file": "vendors~main.chunk.js"
     }
   ],
@@ -2778,6 +2873,13 @@
     {
       "id": "./node_modules/invariant/browser.js",
       "name": "./node_modules/invariant/browser.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "is-buffer": [
+    {
+      "id": "./node_modules/is-buffer/index.js",
+      "name": "./node_modules/is-buffer/index.js",
       "file": "vendors~main.chunk.js"
     }
   ],
@@ -2862,6 +2964,13 @@
     {
       "id": "./node_modules/object-assign/index.js",
       "name": "./node_modules/object-assign/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "./../../process/browser.js": [
+    {
+      "id": "./node_modules/process/browser.js",
+      "name": "./node_modules/process/browser.js",
       "file": "vendors~main.chunk.js"
     }
   ],
@@ -3394,6 +3503,13 @@
     {
       "id": "./node_modules/redux/es/utils/warning.js",
       "name": "./node_modules/redux/es/utils/warning.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "regenerator-runtime/runtime": [
+    {
+      "id": "./node_modules/regenerator-runtime/runtime.js",
+      "name": "./node_modules/regenerator-runtime/runtime.js",
       "file": "vendors~main.chunk.js"
     }
   ],

@@ -3,7 +3,7 @@ import createSagaMiddleware, { END } from "redux-saga";
 
 import todoApp from "./Root/screens/TodoApp/reducer";
 
-import { TRootState } from "./types";
+import { TRootState, CustomStore } from "./types";
 
 export default function configureStore(defaultState?: TRootState) {
   const rootReducer = combineReducers({ todoApp });
@@ -24,10 +24,10 @@ export default function configureStore(defaultState?: TRootState) {
     rootReducer,
     defaultState || {},
     compose(...enhancers)
-  );
-  // @ts-ignore
+  ) as CustomStore<TRootState>;
+
   store.runSaga = sagaMiddleware.run;
-  // @ts-ignore
   store.close = () => store.dispatch(END);
+
   return store;
 }

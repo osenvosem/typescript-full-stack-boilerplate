@@ -11,7 +11,7 @@ import { Provider } from "react-redux";
 import Main from "../../../common/Root";
 import { TStaticContext } from "./types";
 import configureStore from "../../../common/configureStore";
-import todoSaga from "../../../common/Root/screens/TodoApp/sagas";
+import todoAppSaga from "../../../common/Root/screens/TodoApp/sagas";
 
 const assets: string[] = JSON.parse(CLIENT_ASSETS);
 
@@ -36,8 +36,7 @@ const SSRHandler: Handler = (req, res, next) => {
   if (context.url) {
     res.redirect(context.status || 301, context.url);
   } else {
-    // @ts-ignore
-    store.runSaga(todoSaga).done.then(() => {
+    store.runSaga(todoAppSaga).done.then(() => {
       const html = `
       <!DOCTYPE html>
       <html lang="en">
@@ -50,34 +49,32 @@ const SSRHandler: Handler = (req, res, next) => {
         </head>
         
         <body>
-        <div id="root">${renderToString(rootComp)}</div>
+          <div id="root">${renderToString(rootComp)}</div>
         
-        <script>window.__INITIAL_STATE__ = ${JSON.stringify(
-          store.getState()
-        )}</script>
-        ${
-          /* this may not be needed */ bundles
-            .map(bundle => {
-              return `<script src="${config.get("publicPath")}${
-                bundle.file
-              }"></script>`;
+          <script>window.__INITIAL_STATE__ = ${JSON.stringify(
+            store.getState()
+          )}</script>
+          ${
+            /* this may not be needed */ bundles
+              .map(bundle => {
+                return `<script src="${config.get("publicPath")}${
+                  bundle.file
+                }"></script>`;
+              })
+              .join("\n")
+          }
+
+          ${assets
+            .map(assetPath => {
+              return `<script src="${assetPath}"></script>\n`;
             })
-            .join("\n")
-        }
-
-        ${assets
-          .map(assetPath => {
-            return `<script src="${assetPath}"></script>\n`;
-          })
-          .join("\n")}
-      </body>
-
+            .join("\n")}
+        </body>
       </html>
     `;
       res.send(html);
     });
     renderToString(rootComp);
-    // @ts-ignore
     store.close();
   }
 };
