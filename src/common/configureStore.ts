@@ -3,6 +3,7 @@ import createSagaMiddleware, { END } from "redux-saga";
 
 import todoApp from "./Root/screens/TodoApp/reducer";
 
+import "./globalStyles";
 import { TRootState, CustomStore } from "./types";
 
 export default function configureStore(defaultState?: TRootState) {

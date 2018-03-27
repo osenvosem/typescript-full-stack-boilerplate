@@ -4,6 +4,11 @@
       "id": "./src/common/shared/components/NotFound/index.tsx",
       "name": "./src/common/shared/components/NotFound/index.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/shared/components/NotFound/index.tsx",
+      "name": "./src/common/shared/components/NotFound/index.tsx",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "undefined": [
@@ -16,6 +21,16 @@
       "id": "./node_modules/webpack/hot sync ^\\.\\/log$",
       "name": "./node_modules/webpack/hot sync ^\\.\\/log$",
       "file": "main.bundle.js"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
+    },
+    {
+      "id": "./node_modules/webpack/hot sync ^\\.\\/log$",
+      "name": "./node_modules/webpack/hot sync ^\\.\\/log$",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./common/Root/": [
@@ -23,6 +38,11 @@
       "id": "./src/common/Root/index.tsx",
       "name": "./src/common/Root/index.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/index.tsx",
+      "name": "./src/common/Root/index.tsx",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./common/configureStore": [
@@ -30,6 +50,11 @@
       "id": "./src/common/configureStore.ts",
       "name": "./src/common/configureStore.ts",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/configureStore.ts",
+      "name": "./src/common/configureStore.ts",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./common/Root/screens/TodoApp/sagas": [
@@ -37,6 +62,11 @@
       "id": "./src/common/Root/screens/TodoApp/sagas.ts",
       "name": "./src/common/Root/screens/TodoApp/sagas.ts",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/sagas.ts",
+      "name": "./src/common/Root/screens/TodoApp/sagas.ts",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./apiService": [
@@ -44,6 +74,11 @@
       "id": "./src/common/Root/screens/TodoApp/apiService.ts",
       "name": "./src/common/Root/screens/TodoApp/apiService.ts",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/apiService.ts",
+      "name": "./src/common/Root/screens/TodoApp/apiService.ts",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./types": [
@@ -51,6 +86,11 @@
       "id": "./src/common/Root/screens/TodoApp/types.ts",
       "name": "./src/common/Root/screens/TodoApp/types.ts",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/types.ts",
+      "name": "./src/common/Root/screens/TodoApp/types.ts",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./todos": [
@@ -58,6 +98,11 @@
       "id": "./src/common/Root/screens/TodoApp/todos.ts",
       "name": "./src/common/Root/screens/TodoApp/todos.ts",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/todos.ts",
+      "name": "./src/common/Root/screens/TodoApp/todos.ts",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./Root/screens/TodoApp/reducer": [
@@ -65,6 +110,23 @@
       "id": "./src/common/Root/screens/TodoApp/reducer.ts",
       "name": "./src/common/Root/screens/TodoApp/reducer.ts",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/reducer.ts",
+      "name": "./src/common/Root/screens/TodoApp/reducer.ts",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
+    }
+  ],
+  "./globalStyles": [
+    {
+      "id": "./src/common/globalStyles.ts",
+      "name": "./src/common/globalStyles.ts",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/globalStyles.ts",
+      "name": "./src/common/globalStyles.ts",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./components/MainMenu/": [
@@ -72,6 +134,11 @@
       "id": "./src/common/Root/components/MainMenu/index.tsx",
       "name": "./src/common/Root/components/MainMenu/index.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/components/MainMenu/index.tsx",
+      "name": "./src/common/Root/components/MainMenu/index.tsx",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./src/client.tsx": [
@@ -79,6 +146,11 @@
       "id": "./src/client.tsx",
       "name": "./src/client.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/client.tsx",
+      "name": "./src/client.tsx",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./screens/Home/": [
@@ -86,6 +158,11 @@
       "id": "./src/common/Root/screens/Home/index.tsx",
       "name": "./src/common/Root/screens/Home/index.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/Home/index.tsx",
+      "name": "./src/common/Root/screens/Home/index.tsx",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./screens/TodoApp": [
@@ -93,6 +170,11 @@
       "id": "./src/common/Root/screens/TodoApp/index.tsx",
       "name": "./src/common/Root/screens/TodoApp/index.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/index.tsx",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./mainMenuItems": [
@@ -100,6 +182,23 @@
       "id": "./src/common/Root/mainMenuItems.ts",
       "name": "./src/common/Root/mainMenuItems.ts",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/mainMenuItems.ts",
+      "name": "./src/common/Root/mainMenuItems.ts",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
+    }
+  ],
+  "../theme": [
+    {
+      "id": "./src/common/theme.ts",
+      "name": "./src/common/theme.ts",
+      "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/theme.ts",
+      "name": "./src/common/theme.ts",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./actionCreators": [
@@ -107,6 +206,11 @@
       "id": "./src/common/Root/screens/TodoApp/actionCreators.ts",
       "name": "./src/common/Root/screens/TodoApp/actionCreators.ts",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/actionCreators.ts",
+      "name": "./src/common/Root/screens/TodoApp/actionCreators.ts",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./components/TodoList": [
@@ -114,6 +218,11 @@
       "id": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
       "name": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/TodoList/index.tsx",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./components/TodoInput": [
@@ -121,6 +230,11 @@
       "id": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
       "name": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/TodoInput/index.tsx",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./components/Filters": [
@@ -128,6 +242,11 @@
       "id": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
       "name": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/Filters/index.tsx",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "./utils": [
@@ -135,6 +254,11 @@
       "id": "./src/common/Root/screens/TodoApp/utils.ts",
       "name": "./src/common/Root/screens/TodoApp/utils.ts",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/utils.ts",
+      "name": "./src/common/Root/screens/TodoApp/utils.ts",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     },
     {
       "id": "./node_modules/axios/lib/utils.js",
@@ -152,6 +276,11 @@
       "id": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
       "name": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
       "file": "main.bundle.js"
+    },
+    {
+      "id": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
+      "name": "./src/common/Root/screens/TodoApp/components/TodoItem/index.tsx",
+      "file": "main.51004c88c80b7dbb173b.hot-update.js"
     }
   ],
   "ansi-html": [
@@ -490,7 +619,7 @@
       "file": "vendors~main.chunk.js"
     }
   ],
-  "./modules/_core": [
+  "../../modules/_core": [
     {
       "id": "./node_modules/core-js/modules/_core.js",
       "name": "./node_modules/core-js/modules/_core.js",
@@ -2761,15 +2890,10 @@
       "file": "vendors~main.chunk.js"
     }
   ],
-  "./PathUtils": [
+  "history/PathUtils": [
     {
       "id": "./node_modules/history/PathUtils.js",
       "name": "./node_modules/history/PathUtils.js",
-      "file": "vendors~main.chunk.js"
-    },
-    {
-      "id": "./node_modules/history/es/PathUtils.js",
-      "name": "./node_modules/history/es/PathUtils.js",
       "file": "vendors~main.chunk.js"
     }
   ],
@@ -2806,6 +2930,13 @@
       "file": "vendors~main.chunk.js"
     }
   ],
+  "./PathUtils": [
+    {
+      "id": "./node_modules/history/es/PathUtils.js",
+      "name": "./node_modules/history/es/PathUtils.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
   "./createBrowserHistory": [
     {
       "id": "./node_modules/history/es/createBrowserHistory.js",
@@ -2838,6 +2969,11 @@
     {
       "id": "./node_modules/hoist-non-react-statics/index.js",
       "name": "./node_modules/hoist-non-react-statics/index.js",
+      "file": "vendors~main.chunk.js"
+    },
+    {
+      "id": "./node_modules/styled-components/node_modules/hoist-non-react-statics/index.js",
+      "name": "./node_modules/styled-components/node_modules/hoist-non-react-statics/index.js",
       "file": "vendors~main.chunk.js"
     }
   ],
@@ -2880,6 +3016,20 @@
     {
       "id": "./node_modules/is-buffer/index.js",
       "name": "./node_modules/is-buffer/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "is-plain-object": [
+    {
+      "id": "./node_modules/is-plain-object/index.js",
+      "name": "./node_modules/is-plain-object/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "isobject": [
+    {
+      "id": "./node_modules/isobject/index.js",
+      "name": "./node_modules/isobject/index.js",
       "file": "vendors~main.chunk.js"
     }
   ],
@@ -3538,6 +3688,27 @@
     {
       "id": "./node_modules/strip-ansi/index.js",
       "name": "./node_modules/strip-ansi/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "styled-components": [
+    {
+      "id": "./node_modules/styled-components/dist/styled-components.browser.es.js",
+      "name": "./node_modules/styled-components/dist/styled-components.browser.es.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "stylis-rule-sheet": [
+    {
+      "id": "./node_modules/stylis-rule-sheet/index.js",
+      "name": "./node_modules/stylis-rule-sheet/index.js",
+      "file": "vendors~main.chunk.js"
+    }
+  ],
+  "stylis": [
+    {
+      "id": "./node_modules/stylis/stylis.js",
+      "name": "./node_modules/stylis/stylis.js",
       "file": "vendors~main.chunk.js"
     }
   ],

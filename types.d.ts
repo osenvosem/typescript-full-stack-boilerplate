@@ -20,3 +20,6 @@ declare namespace Express {
     todoId: number;
   }
 }
+
+declare module "*.woff";
+declare module "*.woff2";

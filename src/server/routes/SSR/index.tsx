@@ -7,6 +7,7 @@ import { getBundles } from "react-loadable/webpack";
 import stats from "./react-loadable.json";
 import config from "config";
 import { Provider } from "react-redux";
+import { ServerStyleSheet } from "styled-components";
 
 import Main from "../../../common/Root";
 import { TStaticContext } from "./types";
@@ -19,6 +20,7 @@ const SSRHandler: Handler = (req, res, next) => {
   const context: TStaticContext = {};
   const modules: string[] = [];
   const store = configureStore();
+  const sheet = new ServerStyleSheet();
 
   const rootComp = (
     <Provider store={store}>
@@ -46,6 +48,7 @@ const SSRHandler: Handler = (req, res, next) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
+        ${sheet.getStyleTags()}
         </head>
         
         <body>
@@ -74,7 +77,7 @@ const SSRHandler: Handler = (req, res, next) => {
     `;
       res.send(html);
     });
-    renderToString(rootComp);
+    renderToString(sheet.collectStyles(rootComp));
     store.close();
   }
 };

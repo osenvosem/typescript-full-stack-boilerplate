@@ -1,3 +1,5 @@
+import { TTheme } from "../../../types";
+
 export interface TMenuItem {
   title: string;
   to: string;
@@ -6,4 +8,5 @@ export interface TMenuItem {
 
 export interface TMainMenuProps {
   items: TMenuItem[];
+  theme: TTheme;
 }
