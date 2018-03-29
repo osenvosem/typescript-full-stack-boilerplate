@@ -14,7 +14,9 @@ import { TStaticContext } from "./types";
 import configureStore from "../../../common/configureStore";
 import todoAppSaga from "../../../common/Root/screens/TodoApp/sagas";
 
-const assets: string[] = JSON.parse(CLIENT_ASSETS);
+const assets: string[] = JSON.parse(CLIENT_ASSETS).filter((asset: string) =>
+  /.js$/.test(asset)
+);
 
 const SSRHandler: Handler = (req, res, next) => {
   const context: TStaticContext = {};
@@ -47,7 +49,7 @@ const SSRHandler: Handler = (req, res, next) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Your awesome app</title>
         ${sheet.getStyleTags()}
         </head>
         
@@ -57,16 +59,15 @@ const SSRHandler: Handler = (req, res, next) => {
           <script>window.__INITIAL_STATE__ = ${JSON.stringify(
             store.getState()
           )}</script>
-          ${
-            /* this may not be needed */ bundles
-              .map(bundle => {
-                return `<script src="${config.get("publicPath")}${
-                  bundle.file
-                }"></script>`;
-              })
-              .join("\n")
-          }
-
+          <!-- React Loadable bundles
+          ${bundles
+            .map(bundle => {
+              return `<script src="${config.get("publicPath")}${
+                bundle.file
+              }"></script>`;
+            })
+            .join("\n")}
+            -->
           ${assets
             .map(assetPath => {
               return `<script src="${assetPath}"></script>\n`;

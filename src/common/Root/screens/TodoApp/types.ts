@@ -80,7 +80,7 @@ export interface TAddTodoHandler {
 }
 
 export interface TRemoveTodoHandler {
-  (id: number, e: MouseEvent<HTMLSpanElement>): void;
+  (id: number, e: MouseEvent<HTMLButtonElement>): void;
 }
 
 export interface TToggleTodoHandler {

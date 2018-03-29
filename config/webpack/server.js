@@ -24,4 +24,9 @@ const localWebpackConfig = {
   plugins: [] // don't remove
 };
 
+// don't emit files while server bundling
+commonWebpackConfig.module.rules.forEach(rule => {
+  if (rule.use.loader === "file-loader") rule.use.options.emitFile = false;
+});
+
 module.exports = merge(commonWebpackConfig, localWebpackConfig);

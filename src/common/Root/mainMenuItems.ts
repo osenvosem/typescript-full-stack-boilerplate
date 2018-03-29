@@ -8,7 +8,7 @@ const mainMenuItems: TMenuItem[] = [
   },
   {
     title: "Todo App",
-    to: "/todo"
+    to: "/todoapp"
   }
 ];
 

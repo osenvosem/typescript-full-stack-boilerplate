@@ -35,7 +35,7 @@ class Root extends Component {
           <Main>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/todo" component={Todo} />
+              <Route path="/todoapp" component={Todo} />
               <Route component={NotFound} />
             </Switch>
           </Main>

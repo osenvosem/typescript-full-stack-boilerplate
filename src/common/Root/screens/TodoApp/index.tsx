@@ -1,10 +1,12 @@
 import React, { Component, KeyboardEvent } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import * as actions from "./actionCreators";
 import TodoList from "./components/TodoList";
 import TodoInput from "./components/TodoInput";
 import Filters from "./components/Filters";
+import ActiveItemsCount from "./components/ActiveItemsCount";
 import { filterTodos, generateId } from "./utils";
 
 import { TRootState } from "../../../types";
@@ -19,6 +21,14 @@ import {
   FilterTypes,
   TFilterChangeHandler
 } from "./types";
+
+const BottomPanel = styled.section`
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(0, 0, 0, 0.87);
+`;
 
 class Todo extends Component<TProps, TState> {
   readonly state = { inputValue: "" };
@@ -57,6 +67,7 @@ class Todo extends Component<TProps, TState> {
 
   render() {
     let todos = filterTodos(this.props.todos, this.props.filter);
+    const itemsLeft = this.props.todos.filter(todo => !todo.completed).length;
     return (
       <>
         <TodoInput
@@ -71,10 +82,13 @@ class Todo extends Component<TProps, TState> {
           onRemoveTodo={this.handleRemoveTodo}
           onToggleTodo={this.handleToggleTodo}
         />
-        <Filters
-          onFilterChange={this.handleFilterChange}
-          value={this.props.filter}
-        />
+        <BottomPanel>
+          <ActiveItemsCount itemsLeft={itemsLeft} />
+          <Filters
+            onFilterChange={this.handleFilterChange}
+            value={this.props.filter}
+          />
+        </BottomPanel>
       </>
     );
   }
