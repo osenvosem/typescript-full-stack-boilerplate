@@ -22,7 +22,7 @@ class Home extends Component {
   render() {
     return (
       <Section>
-        <H1>Welcome to the Homepage.</H1>
+        <H1>Welcome to the Homepage</H1>
         <CatImage />
         <H2>
           Don't forget to check out the <a href="/todoapp">Demo app</a>

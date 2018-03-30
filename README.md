@@ -1,11 +1,11 @@
-A full-stack typescript boilerplate that was created for learning purposes and to bootstraping my projects.
+A full-stack typescript boilerplate that primarily was created for the purpose of training.
 
 ## What's inside (will be complemented as the boilerplate evolves)
 
 * Webpack 4 and Babel 7 with typescript, env and stage-2 presets;
+* React, React Router, React Loadable, Redux, Redux Saga, Styled Components;
 * Express;
-* React, React Router, React Loadable, Redux, Redux Saga;
-* Server side rendering and state hydration;
+* Server side rendering;
 * Client side hot module reloading;
 * Friendly errors;
 
@@ -23,6 +23,9 @@ npm run clean | yarn clean
 
 # start in production mode (on port 8080 by default)
 npm run start:prod | yarn start:prod
+
+# build and start the app in production mode
+npm run build:start:prod | yarn build:start:prod
 ```
 
 ## The project structure
@@ -30,8 +33,8 @@ npm run start:prod | yarn start:prod
 ```sh
 .
 ├── README.md
-├── build # default server bundle output folder
-├── config # configuration files (webpack, node-config, etc...)
+├── build # server builds
+├── config # global and webpack configuration
 │   ├── default.json
 │   ├── development.json
 │   ├── production.json
@@ -40,50 +43,89 @@ npm run start:prod | yarn start:prod
 │       ├── common.js
 │       └── server.js
 ├── package.json
-├── public # default client bundles output folder
+├── public # production build folder for the client code
 ├── scripts # development scripts
 │   ├── build.js
 │   ├── clean.js
 │   └── start.js
-├── src # code source folder with a demo app
-│   ├── app # shared code between server and client
-│   │   ├── Main
+├── src
+│   ├── client.tsx # client entry point
+│   ├── common # universal code
+│   │   ├── Root
 │   │   │   ├── components
 │   │   │   │   └── MainMenu
 │   │   │   │       ├── index.tsx
-│   │   │   │       ├── interfaces.ts
-│   │   │   │       └── mainMenuItems.json
+│   │   │   │       └── types.ts
 │   │   │   ├── index.tsx
+│   │   │   ├── mainMenuItems.ts
 │   │   │   └── screens
-│   │   │       ├── About
+│   │   │       ├── Home
+│   │   │       │   ├── components
+│   │   │       │   │   ├── CatImage.tsx
+│   │   │       │   │   └── cat.png
 │   │   │       │   └── index.tsx
-│   │   │       ├── Animals
-│   │   │       │   ├── index.tsx
-│   │   │       │   └── screens
-│   │   │       │       ├── Cats
-│   │   │       │       │   └── index.tsx
-│   │   │       │       ├── Dogs
-│   │   │       │       │   └── index.tsx
-│   │   │       │       └── Hamsters
-│   │   │       │           └── index.tsx
-│   │   │       └── Home
-│   │   │           └── index.tsx
-│   │   └── shared # shared folder from which you can import something as a global module: `import NotFound from "components/NotFound"`
-│   │       └── components
-│   │           ├── NotFound
-│   │           │   └── index.tsx
-│   │           └── RedirectWithStatus
-│   │               ├── index.tsx
-│   │               └── interfaces.ts
-│   ├── client.tsx # client only file
-│   └── server # server only code
+│   │   │       └── TodoApp
+│   │   │           ├── actionCreators.ts
+│   │   │           ├── apiService.ts
+│   │   │           ├── components
+│   │   │           │   ├── ActiveItemsCount
+│   │   │           │   │   ├── index.tsx
+│   │   │           │   │   └── types.ts
+│   │   │           │   ├── Filters
+│   │   │           │   │   ├── index.tsx
+│   │   │           │   │   └── types.ts
+│   │   │           │   ├── TodoInput
+│   │   │           │   │   ├── index.tsx
+│   │   │           │   │   └── types.ts
+│   │   │           │   ├── TodoItem
+│   │   │           │   │   ├── components
+│   │   │           │   │   │   ├── CompletedIcon.tsx
+│   │   │           │   │   │   └── RemoveButton.tsx
+│   │   │           │   │   ├── index.tsx
+│   │   │           │   │   └── types.ts
+│   │   │           │   └── TodoList
+│   │   │           │       ├── index.tsx
+│   │   │           │       └── types.ts
+│   │   │           ├── index.tsx
+│   │   │           ├── reducer.ts
+│   │   │           ├── sagas.ts
+│   │   │           ├── todos.ts
+│   │   │           ├── types.ts
+│   │   │           └── utils.ts
+│   │   ├── assets
+│   │   │   └── fonts
+│   │   │       ├── Inter-UI-Bold.woff
+│   │   │       ├── Inter-UI-Bold.woff2
+│   │   │       ├── Inter-UI-Italic.woff
+│   │   │       ├── Inter-UI-Italic.woff2
+│   │   │       ├── Inter-UI-Regular.woff
+│   │   │       └── Inter-UI-Regular.woff2
+│   │   ├── configureStore.ts
+│   │   ├── globalStyles.ts
+│   │   ├── shared
+│   │   │   ├── components
+│   │   │   │   ├── NotFound
+│   │   │   │   │   └── index.tsx
+│   │   │   │   └── RedirectWithStatus
+│   │   │   │       ├── index.tsx
+│   │   │   │       └── interfaces.ts
+│   │   │   ├── services
+│   │   │   └── utils
+│   │   ├── theme.ts
+│   │   └── types.ts
+│   └── server
 │       ├── index.ts
 │       ├── routes
-│       │   └── SSR # express middleware for server side rendering
-│       │       ├── index.tsx
-│       │       └── interfaces.ts
+│       │   ├── SSR
+│       │   │   ├── index.tsx
+│       │   │   ├── react-loadable.json
+│       │   │   └── types.ts
+│       │   ├── index.ts
+│       │   └── todoApp
+│       │       ├── index.ts
+│       │       └── types.ts
 │       └── server.ts
 ├── tsconfig.json
-├── types.d.ts # global ambient types
+├── types.d.ts
 └── yarn.lock
 ```
